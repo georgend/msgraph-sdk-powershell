@@ -16,7 +16,7 @@ Create new navigation property to childFolders for users
 ```
 New-MgUserMailFolderChildFolder -MailFolderId <String> -UserId <String> [-ChildFolderCount <Int32>]
  [-ChildFolders <IMicrosoftGraphMailFolder[]>] [-DisplayName <String>] [-Id <String>]
- [-MessageRules <IMicrosoftGraphMessageRule[]>] [-Messages <IMicrosoftGraphMessage1[]>]
+ [-MessageRules <IMicrosoftGraphMessageRule[]>] [-Messages <IMicrosoftGraphMessage[]>]
  [-MultiValueExtendedProperties <IMicrosoftGraphMultiValueLegacyExtendedProperty[]>]
  [-ParentFolderId <String>]
  [-SingleValueExtendedProperties <IMicrosoftGraphSingleValueLegacyExtendedProperty[]>]
@@ -41,7 +41,7 @@ New-MgUserMailFolderChildFolder -InputObject <IMailIdentity> -BodyParameter <IMi
 ```
 New-MgUserMailFolderChildFolder -InputObject <IMailIdentity> [-ChildFolderCount <Int32>]
  [-ChildFolders <IMicrosoftGraphMailFolder[]>] [-DisplayName <String>] [-Id <String>]
- [-MessageRules <IMicrosoftGraphMessageRule[]>] [-Messages <IMicrosoftGraphMessage1[]>]
+ [-MessageRules <IMicrosoftGraphMessageRule[]>] [-Messages <IMicrosoftGraphMessage[]>]
  [-MultiValueExtendedProperties <IMicrosoftGraphMultiValueLegacyExtendedProperty[]>]
  [-ParentFolderId <String>]
  [-SingleValueExtendedProperties <IMicrosoftGraphSingleValueLegacyExtendedProperty[]>]
@@ -204,7 +204,7 @@ The collection of messages in the mailFolder.
 To construct, see NOTES section for MESSAGES properties and create a hash table.
 
 ```yaml
-Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphMessage1[]
+Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphMessage[]
 Parameter Sets: CreateExpanded, CreateViaIdentityExpanded
 Aliases:
 
@@ -454,7 +454,7 @@ BODYPARAMETER <IMicrosoftGraphMailFolder>: mailFolder
     - `[IsEnabled <Boolean?>]`: Indicates whether the rule is enabled to be applied to messages.
     - `[IsReadOnly <Boolean?>]`: Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.
     - `[Sequence <Int32?>]`: Indicates the order in which the rule is executed, among other rules.
-  - `[Messages <IMicrosoftGraphMessage1[]>]`: The collection of messages in the mailFolder.
+  - `[Messages <IMicrosoftGraphMessage[]>]`: The collection of messages in the mailFolder.
     - `[Categories <String[]>]`: The categories associated with the item
     - `[ChangeKey <String>]`: Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
     - `[CreatedDateTime <DateTime?>]`: The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -595,7 +595,7 @@ CHILDFOLDERS <IMicrosoftGraphMailFolder[]>: The collection of child folders in t
     - `[IsEnabled <Boolean?>]`: Indicates whether the rule is enabled to be applied to messages.
     - `[IsReadOnly <Boolean?>]`: Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.
     - `[Sequence <Int32?>]`: Indicates the order in which the rule is executed, among other rules.
-  - `[Messages <IMicrosoftGraphMessage1[]>]`: The collection of messages in the mailFolder.
+  - `[Messages <IMicrosoftGraphMessage[]>]`: The collection of messages in the mailFolder.
     - `[Categories <String[]>]`: The categories associated with the item
     - `[ChangeKey <String>]`: Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
     - `[CreatedDateTime <DateTime?>]`: The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -746,7 +746,7 @@ MESSAGERULES <IMicrosoftGraphMessageRule[]>: The collection of rules that apply 
   - `[IsReadOnly <Boolean?>]`: Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.
   - `[Sequence <Int32?>]`: Indicates the order in which the rule is executed, among other rules.
 
-MESSAGES <IMicrosoftGraphMessage1[]>: The collection of messages in the mailFolder.
+MESSAGES <IMicrosoftGraphMessage[]>: The collection of messages in the mailFolder.
   - `[Categories <String[]>]`: The categories associated with the item
   - `[ChangeKey <String>]`: Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
   - `[CreatedDateTime <DateTime?>]`: The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'

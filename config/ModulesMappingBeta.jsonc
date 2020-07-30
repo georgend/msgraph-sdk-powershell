@@ -13,7 +13,7 @@
     // "Financials": "^financials\\.",
     // "Groups": "^groups.group$|^groups.directoryObject$|^groups.appRoleAssignment$|^groups.conversation$|^groups.endpoint$|^groups.extension$|^groups.resourceSpecificPermissionGrant$|^groups.profilePhoto$|^groups.conversationThread$|^groupLifecyclePolicies\\.|^users.group$|^groups.directorySetting$",
     // "Groups.Actions":"^groups.Actions&",
-    // "Groups.Functions":"^groups.Functions&",
+    "Groups.Functions":"^groups.Functions&",
     // "Identity.DirectoryManagement": "^administrativeUnits\\.|^contacts\\.|^devices\\.|^domains\\.|^directoryRoles\\.|^directoryRoleTemplates\\.|^directorySettingTemplates\\.|^settings\\.|^subscribedSkus\\.|^contracts\\.|^directory\\.|^users.scopedRoleMembership$",
     // "Identity.AccessReviews": "^accessReviews\\.|^businessFlowTemplates\\.|^programs\\.|^programControls\\.|^programControlTypes\\.",
     // // "Identity.EntitlementManagement": "^identityGovernance\\.", - Too large.
@@ -24,7 +24,7 @@
     // "Notes.Users":"^users.onenote$",
     // "Notes.Groups":"^groups.onenote$",
     // "Notes.Sites":"^sites.onenote$",
-    "People": "^users.person$|^users.profile$|^users.officeGraphInsights$|^users.userAnalytics$",
+    // "People": "^users.person$|^users.profile$|^users.officeGraphInsights$|^users.userAnalytics$",
     // "PersonalContacts":"^users.contactFolder$|^users.contact$",
     // "Planner": "^planner\\.|^users.plannerUser$|^groups.plannerGroup$",
     // "Reports": "^reports\\.",
