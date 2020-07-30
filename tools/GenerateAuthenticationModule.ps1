@@ -2,11 +2,7 @@
 # Licensed under the MIT License.
 Param(
   [string] $RepositoryName = "PSGallery",
-  [string] $RepositoryApiKey,
-  [string] $ArtifactsLocation = (Join-Path $PSScriptRoot "..\artifacts\"),
   [switch] $Build,
-  [switch] $Pack,
-  [switch] $Publish,
   [switch] $EnableSigning,
   [switch] $BuildWhenEqual
 )
@@ -26,8 +22,6 @@ $ModulePrefix = "Microsoft.Graph"
 $ModuleName = "Authentication"
 $AuthModuleManifest = "Microsoft.Graph.Authentication.psd1"
 $BuildModulePS1 = Join-Path $PSScriptRoot ".\BuildModule.ps1" -Resolve
-$PackModulePS1 = Join-Path $PSScriptRoot ".\PackModule.ps1" -Resolve
-$PublishModulePS1 = Join-Path $PSScriptRoot ".\PublishModule.ps1" -Resolve
 $ValidateUpdatedModuleVersionPS1 = Join-Path $PSScriptRoot ".\ValidateUpdatedModuleVersion.ps1" -Resolve
 $AuthModulePath = Join-Path $PSScriptRoot "..\src\Authentication\Authentication\" -Resolve
 
@@ -57,13 +51,5 @@ elseif ($VersionState.Equals([VersionState]::Valid) -or $VersionState.Equals([Ve
     else {
       & $BuildModulePS1 -Module $ModuleName -ModulePrefix $ModulePrefix -ModuleVersion $ModuleVersion -ReleaseNotes $ManifestContent.PrivateData.PSData.ReleaseNotes
     }
-  }
-
-  if ($Pack) {
-    & $PackModulePS1 -Module $ModuleName -ArtifactsLocation $ArtifactsLocation
-  }
-
-  if ($Publish) {
-    & $PublishModulePS1 -Modules $ModuleName -ModulePrefix $ModulePrefix -ArtifactsLocation $ArtifactsLocation -RepositoryName $RepositoryName -RepositoryApiKey $RepositoryApiKey
   }
 }

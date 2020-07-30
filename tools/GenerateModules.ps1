@@ -7,7 +7,6 @@ Param(
     [string] $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMappingBeta.jsonc"),
     [switch] $UpdateAutoRest,
     [switch] $Build,
-    [switch] $Pack,
     [switch] $EnableSigning,
     [switch] $SkipVersionCheck
 )
@@ -16,7 +15,7 @@ if ($PSEdition -ne 'Core') {
     Write-Error 'This script requires PowerShell Core to execute. [Note] Generated cmdlets will work in both PowerShell Core or Windows PowerShell.'
 }
 # Install Powershell-yaml
-$ExistingAuthModule = Find-Module "Microsoft.Graph.Authentication"
+$ExistingAuthModule = Find-Module "Microsoft.Graph.Authentication" -Repository $RepositoryName
 if (!(Get-Module -Name powershell-yaml -ListAvailable)) {
     Install-Module powershell-yaml -Force   
 }
@@ -29,22 +28,17 @@ if (!(Get-Module -Name $ExistingAuthModule.Name -ListAvailable)) {
 $ModulePrefix = "Microsoft.Graph"
 $ScriptRoot = $PSScriptRoot
 $ModulesOutputDir = Join-Path $PSScriptRoot "..\src\"
-$ArtifactsLocation = Join-Path $PSScriptRoot "..\artifacts"
 $RequiredGraphModules = @(@{ ModuleName = $ExistingAuthModule.Name ; ModuleVersion = $ExistingAuthModule.Version })
 # PS Scripts
 $ManageGeneratedModulePS1 = Join-Path $PSScriptRoot ".\ManageGeneratedModule.ps1" -Resolve
 $BuildModulePS1 = Join-Path $PSScriptRoot ".\BuildModule.ps1" -Resolve
-$PackModulePS1 = Join-Path $PSScriptRoot ".\PackModule.ps1" -Resolve
 $ReadModuleReadMePS1 = Join-Path $PSScriptRoot ".\ReadModuleReadMe.ps1" -Resolve
 $ValidateUpdatedModuleVersionPS1 = Join-Path $PSScriptRoot ".\ValidateUpdatedModuleVersion.ps1" -Resolve
-
-if (-not (Test-Path $ArtifactsLocation)) {
-    New-Item -Path $ArtifactsLocation -Type Directory
-}
 
 if (-not (Test-Path $ModuleMappingConfigPath)) {
     Write-Error "Module mapping file not be found: $ModuleMappingConfigPath."
 }
+
 if ($UpdateAutoRest) {
     # Update AutoRest.
     & autorest --reset
@@ -63,7 +57,7 @@ $ModuleMapping.Keys | ForEach-Object {
     # Copy AutoRest readme.md config is none exists.
     if (-not (Test-Path "$ModuleProjectDir\readme.md")) {
         New-Item -Path $ModuleProjectDir -Type Directory -Force
-        Copy-Item (Join-Path $ScriptRoot "\Templates\readme.md") -Destination $ModuleProjectDir
+        Copy-Item (Join-Path $PSScriptRoot "\Templates\readme.md") -Destination $ModuleProjectDir
     }
 
     $ModuleLevelReadMePath = Join-Path $ModuleProjectDir "\readme.md" -Resolve
@@ -136,11 +130,6 @@ $ModuleMapping.Keys | ForEach-Object {
                 if ($LASTEXITCODE) {
                     Write-Error "Failed to build '$ModuleName' module."
                 }
-            }
-
-            if ($Pack) {
-                # Pack generated module.
-                & $PackModulePS1 -Module $ModuleName -ArtifactsLocation $ArtifactsLocation
             }
         }
         catch {

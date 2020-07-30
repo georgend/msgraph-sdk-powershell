@@ -6,7 +6,7 @@
     // // "CloudCommunications": "^app\\.|^users.onlineMeeting$|^users.presence$",// - Needs directive.
     // "CrossDeviceExperiences": "^users.userActivity$|^users.device$",
     // "Devices.CloudPrint": "^print\\.",
-    // //FD "Devices.CorporateManagement": "^organization\\.|^roleManagement\\.|^deviceManagement\\.|^deviceAppManagement\\.|^officeConfiguration\\.|^users.mobileAppIntentAndState$|^users.mobileAppTroubleshootingEvent$|^users.windowsInformationProtectionDeviceRegistration$",// Fails to download.
+    // // "Devices.CorporateManagement": "^organization\\.|^roleManagement\\.|^deviceManagement\\.|^deviceAppManagement\\.|^officeConfiguration\\.|^users.mobileAppIntentAndState$|^users.mobileAppTroubleshootingEvent$|^users.windowsInformationProtectionDeviceRegistration$",// Fails to download.
     // "DirectoryObjects": "^directoryObjects\\.",
     // "Education": "^education\\.",
     // "Files": "^drives\\.|^shares\\.|^users.drive$|^groups.drive$",
@@ -15,7 +15,10 @@
     // "Groups.Actions":"^groups.Actions&",
     // "Groups.Functions":"^groups.Functions&",
     // "Identity.DirectoryManagement": "^administrativeUnits\\.|^contacts\\.|^devices\\.|^domains\\.|^directoryRoles\\.|^directoryRoleTemplates\\.|^directorySettingTemplates\\.|^settings\\.|^subscribedSkus\\.|^contracts\\.|^directory\\.|^users.scopedRoleMembership$",
-    // //L "Identity.Governance": "^accessReviews\\.|^businessFlowTemplates\\.|^programs\\.|^programControls\\.|^programControlTypes\\.|^agreements\\.|^privilegedAccess\\.|^privilegedRoles\\.|^privilegedRoleAssignments\\.|^privilegedOperationEvents\\.|^privilegedApproval\\.|^privilegedRoleAssignmentRequests\\.|^identityGovernance\\.|^users.agreementAcceptance$",
+    // "Identity.AccessReviews": "^accessReviews\\.|^businessFlowTemplates\\.|^programs\\.|^programControls\\.|^programControlTypes\\.",
+    // // "Identity.EntitlementManagement": "^identityGovernance\\.", - Too large.
+    // "Identity.PIM": "^privilegedRoles\\.|^privilegedRoleAssignments\\.|^privilegedRoleAssignmentRequests\\.|^privilegedApproval\\.|^privilegedOperationEvents\\.|^privilegedAccess\\.",
+    // "Identity.TermsOfUse": "^agreements\\.|^users.agreementAcceptance$",
     // "Identity.SignIns": "^invitations\\.|^identityProviders\\.|^oauth2PermissionGrants\\.|^riskDetections\\.|^riskyUsers\\.|^dataPolicyOperations\\.|^auditLogs\\.|^identity.identityUserFlow$|^trustFramework\\.|^informationProtection\\.|^policies\\.|^users.authentication$|^users.informationProtection$",
     // "Mail": "^users.inferenceClassification$|^users.mailFolder$|^users.message$",
     // "Notes.Users":"^users.onenote$",
