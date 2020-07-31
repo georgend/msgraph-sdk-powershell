@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Devices.CloudPrint
-Module Guid: 732131fe-3c87-4a42-a67c-8fc37728f1cc
+Module Guid: c3741327-a824-4254-97af-f773c11771aa
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.devices.cloudprint
 Help Version: 1.0.0.0
 Locale: en-US
@@ -16,6 +16,9 @@ Get print
 
 ### [Get-MgPrintConnector](Get-MgPrintConnector.md)
 Get connectors from print
+
+### [Get-MgPrintOperation](Get-MgPrintOperation.md)
+Get operations from print
 
 ### [Get-MgPrintPrinter](Get-MgPrintPrinter.md)
 Get printers from print
@@ -46,6 +49,12 @@ Get printer from print
 
 ### [Get-MgPrintPrinterSharePrinterCapability](Get-MgPrintPrinterSharePrinterCapability.md)
 Invoke function getCapabilities
+
+### [Get-MgPrintPrinterTaskTrigger](Get-MgPrintPrinterTaskTrigger.md)
+Get taskTriggers from print
+
+### [Get-MgPrintPrinterTaskTriggerDefinition](Get-MgPrintPrinterTaskTriggerDefinition.md)
+Get definition from print
 
 ### [Get-MgPrintReport](Get-MgPrintReport.md)
 Get reports from print
@@ -95,11 +104,20 @@ Get printer from print
 ### [Get-MgPrintSharePrinterCapability](Get-MgPrintSharePrinterCapability.md)
 Invoke function getCapabilities
 
+### [Get-MgPrintTaskDefinition](Get-MgPrintTaskDefinition.md)
+Get taskDefinitions from print
+
+### [Get-MgPrintTaskDefinitionTask](Get-MgPrintTaskDefinitionTask.md)
+Get tasks from print
+
+### [Get-MgPrintTaskDefinitionTaskTrigger](Get-MgPrintTaskDefinitionTaskTrigger.md)
+Get trigger from print
+
 ### [New-MgPrintConnector](New-MgPrintConnector.md)
 Create new navigation property to connectors for print
 
-### [New-MgPrintPrinter](New-MgPrintPrinter.md)
-Create new navigation property to printers for print
+### [New-MgPrintOperation](New-MgPrintOperation.md)
+Create new navigation property to operations for print
 
 ### [New-MgPrintPrinterAllowedGroup](New-MgPrintPrinterAllowedGroup.md)
 Create new navigation property to allowedGroups for print
@@ -115,6 +133,9 @@ Create new navigation property to allowedGroups for print
 
 ### [New-MgPrintPrinterShareAllowedUser](New-MgPrintPrinterShareAllowedUser.md)
 Create new navigation property to allowedUsers for print
+
+### [New-MgPrintPrinterTaskTrigger](New-MgPrintPrinterTaskTrigger.md)
+Create new navigation property to taskTriggers for print
 
 ### [New-MgPrintReport](New-MgPrintReport.md)
 Create new navigation property to reports for print
@@ -134,6 +155,12 @@ Create new navigation property to allowedGroups for print
 ### [New-MgPrintShareAllowedUser](New-MgPrintShareAllowedUser.md)
 Create new navigation property to allowedUsers for print
 
+### [New-MgPrintTaskDefinition](New-MgPrintTaskDefinition.md)
+Create new navigation property to taskDefinitions for print
+
+### [New-MgPrintTaskDefinitionTask](New-MgPrintTaskDefinitionTask.md)
+Create new navigation property to tasks for print
+
 ### [Reset-MgPrintPrinterDefault](Reset-MgPrintPrinterDefault.md)
 Invoke action resetDefaults
 
@@ -148,6 +175,9 @@ Update print
 
 ### [Update-MgPrintConnector](Update-MgPrintConnector.md)
 Update the navigation property connectors in print
+
+### [Update-MgPrintOperation](Update-MgPrintOperation.md)
+Update the navigation property operations in print
 
 ### [Update-MgPrintPrinter](Update-MgPrintPrinter.md)
 Update the navigation property printers in print
@@ -167,6 +197,9 @@ Update the navigation property allowedGroups in print
 ### [Update-MgPrintPrinterShareAllowedUser](Update-MgPrintPrinterShareAllowedUser.md)
 Update the navigation property allowedUsers in print
 
+### [Update-MgPrintPrinterTaskTrigger](Update-MgPrintPrinterTaskTrigger.md)
+Update the navigation property taskTriggers in print
+
 ### [Update-MgPrintReport](Update-MgPrintReport.md)
 Update the navigation property reports in print
 
@@ -184,4 +217,10 @@ Update the navigation property allowedGroups in print
 
 ### [Update-MgPrintShareAllowedUser](Update-MgPrintShareAllowedUser.md)
 Update the navigation property allowedUsers in print
+
+### [Update-MgPrintTaskDefinition](Update-MgPrintTaskDefinition.md)
+Update the navigation property taskDefinitions in print
+
+### [Update-MgPrintTaskDefinitionTask](Update-MgPrintTaskDefinitionTask.md)
+Update the navigation property tasks in print
 

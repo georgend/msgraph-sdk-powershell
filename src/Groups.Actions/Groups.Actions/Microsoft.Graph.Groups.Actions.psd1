@@ -18,7 +18,7 @@ ModuleVersion = '0.9.0'
 CompatiblePSEditions = 'Core', 'Desktop'
 
 # ID used to uniquely identify this module
-GUID = '0bf7080f-fef8-4a72-b4ad-ded3b7eb5db0'
+GUID = 'b0b941b2-cabf-4722-ab57-dc8995fd54c4'
 
 # Author of this module
 Author = 'Microsoft Corporation'
@@ -84,7 +84,8 @@ FunctionsToExport = 'Add-MgGroupFavorite', 'Confirm-MgGroupGrantedPermission',
                'Copy-MgGroupOnenoteSectionGroupSectionToSectionGroup', 
                'Copy-MgGroupOnenoteSectionPageToSection', 
                'Copy-MgGroupOnenoteSectionToNotebook', 
-               'Copy-MgGroupOnenoteSectionToSectionGroup', 'Get-MgGroupById', 
+               'Copy-MgGroupOnenoteSectionToSectionGroup', 
+               'Get-MgGroupAvailableExtensionProperty', 'Get-MgGroupById', 
                'Get-MgGroupCalendarEventCalendarSchedule', 
                'Get-MgGroupCalendarSchedule', 'Get-MgGroupEventCalendarSchedule', 
                'Get-MgGroupMemberGroup', 'Get-MgGroupMemberObject', 

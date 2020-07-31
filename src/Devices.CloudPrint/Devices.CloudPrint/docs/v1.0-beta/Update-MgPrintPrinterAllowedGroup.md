@@ -231,8 +231,12 @@ INPUTOBJECT <IDevicesCloudPrintIdentity>: Identity Parameter
   - `[PeriodStart <DateTime?>]`: 
   - `[PrintConnectorId <String>]`: key: printConnector-id of printConnector
   - `[PrintIdentityId <String>]`: key: printIdentity-id of printIdentity
+  - `[PrintOperationId <String>]`: key: printOperation-id of printOperation
   - `[PrintServiceEndpointId <String>]`: key: printServiceEndpoint-id of printServiceEndpoint
   - `[PrintServiceId <String>]`: key: printService-id of printService
+  - `[PrintTaskDefinitionId <String>]`: key: printTaskDefinition-id of printTaskDefinition
+  - `[PrintTaskId <String>]`: key: printTask-id of printTask
+  - `[PrintTaskTriggerId <String>]`: key: printTaskTrigger-id of printTaskTrigger
   - `[PrintUserIdentityId <String>]`: key: printUserIdentity-id of printUserIdentity
   - `[PrinterId <String>]`: key: printer-id of printer
   - `[PrinterId1 <String>]`: 

@@ -37,12 +37,12 @@ Update-MgUserMailFolderMessage -MailFolderId <String> -MessageId <String> -UserI
 ### Update1
 ```
 Update-MgUserMailFolderMessage -MailFolderId <String> -MessageId <String> -UserId <String>
- -BodyParameter <IMicrosoftGraphMessage1> [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
+ -BodyParameter <IMicrosoftGraphMessage> [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### UpdateViaIdentity1
 ```
-Update-MgUserMailFolderMessage -InputObject <IMailIdentity> -BodyParameter <IMicrosoftGraphMessage1>
+Update-MgUserMailFolderMessage -InputObject <IMailIdentity> -BodyParameter <IMicrosoftGraphMessage>
  [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -160,7 +160,7 @@ message
 To construct, see NOTES section for BODYPARAMETER properties and create a hash table.
 
 ```yaml
-Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphMessage1
+Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphMessage
 Parameter Sets: Update1, UpdateViaIdentity1
 Aliases:
 
@@ -901,7 +901,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Microsoft.Graph.PowerShell.Models.IMailIdentity
 
-### Microsoft.Graph.PowerShell.Models.IMicrosoftGraphMessage1
+### Microsoft.Graph.PowerShell.Models.IMicrosoftGraphMessage
 
 ## OUTPUTS
 
@@ -929,7 +929,7 @@ BCCRECIPIENTS <IMicrosoftGraphRecipient[]>: The Bcc: recipients for the message.
     - `[Address <String>]`: The email address of the person or entity.
     - `[Name <String>]`: The display name of the person or entity.
 
-BODYPARAMETER <IMicrosoftGraphMessage1>: message
+BODYPARAMETER <IMicrosoftGraphMessage>: message
   - `[Categories <String[]>]`: The categories associated with the item
   - `[ChangeKey <String>]`: Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
   - `[CreatedDateTime <DateTime?>]`: The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'

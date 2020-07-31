@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Identity.PIM
-Module Guid: 7d8338a7-9f94-4a49-921c-976debbf0f1f
+Module Guid: 713068c0-1cc6-49d7-94e7-40f1108df225
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.pim
 Help Version: 1.0.0.0
 Locale: en-US

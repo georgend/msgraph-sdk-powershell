@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Users.Actions
-Module Guid: b17f9606-3e24-4a10-9400-ba1c9cd6e453
+Module Guid: 575be504-205e-41f2-9065-70c73c939228
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.users.actions
 Help Version: 1.0.0.0
 Locale: en-US
@@ -11,6 +11,9 @@ Locale: en-US
 Microsoft Graph PowerShell Cmdlets
 
 ## Microsoft.Graph.Users.Actions Cmdlets
+### [Add-MgUserPendingAccessReviewInstanceDecision](Add-MgUserPendingAccessReviewInstanceDecision.md)
+Invoke action applyDecisions
+
 ### [Clear-MgUserAndBlockManagedApp](Clear-MgUserAndBlockManagedApp.md)
 Invoke action wipeAndBlockManagedApps
 
@@ -200,6 +203,9 @@ Invoke action tentativelyAccept
 ### [Invoke-MgAcceptUserEventTentatively](Invoke-MgAcceptUserEventTentatively.md)
 Invoke action tentativelyAccept
 
+### [Invoke-MgAcceptUserPendingAccessReviewInstanceRecommendation](Invoke-MgAcceptUserPendingAccessReviewInstanceRecommendation.md)
+Invoke action acceptRecommendations
+
 ### [Invoke-MgCleanUserManagedDeviceWindowDevice](Invoke-MgCleanUserManagedDeviceWindowDevice.md)
 Invoke action cleanWindowsDevice
 
@@ -377,9 +383,6 @@ Invoke action unsubscribe
 ### [Invoke-MgUnsubscribeUserMessage](Invoke-MgUnsubscribeUserMessage.md)
 Invoke action unsubscribe
 
-### [Invoke-MgUpgradeUserTeamworkInstalledApp](Invoke-MgUpgradeUserTeamworkInstalledApp.md)
-Invoke action upgrade
-
 ### [Lock-MgUserManagedDeviceRemote](Lock-MgUserManagedDeviceRemote.md)
 Invoke action remoteLock
 
@@ -418,6 +421,12 @@ Invoke action createReply
 
 ### [New-MgUserMailFolderMessageReplyAll](New-MgUserMailFolderMessageReplyAll.md)
 Invoke action createReplyAll
+
+### [New-MgUserManagedDeviceLogCollectionRequest](New-MgUserManagedDeviceLogCollectionRequest.md)
+Invoke action createDeviceLogCollectionRequest
+
+### [New-MgUserManagedDeviceLogCollectionRequestDownloadUrl](New-MgUserManagedDeviceLogCollectionRequestDownloadUrl.md)
+Invoke action createDownloadUrl
 
 ### [New-MgUserMessageAttachmentUploadSession](New-MgUserMessageAttachmentUploadSession.md)
 Invoke action createUploadSession
@@ -461,6 +470,9 @@ Invoke action resetPassword
 ### [Reset-MgUserManagedDevicePasscode](Reset-MgUserManagedDevicePasscode.md)
 Invoke action resetPasscode
 
+### [Reset-MgUserPendingAccessReviewInstanceDecision](Reset-MgUserPendingAccessReviewInstanceDecision.md)
+Invoke action resetDecisions
+
 ### [Restart-MgUserManagedDeviceNow](Restart-MgUserManagedDeviceNow.md)
 Invoke action rebootNow
 
@@ -487,6 +499,9 @@ Invoke action sendCustomNotificationToCompanyPortal
 
 ### [Send-MgUserMessage](Send-MgUserMessage.md)
 Invoke action send
+
+### [Send-MgUserPendingAccessReviewInstanceReminder](Send-MgUserPendingAccessReviewInstanceReminder.md)
+Invoke action sendReminder
 
 ### [Send-MgUserTeamworkActivityNotification](Send-MgUserTeamworkActivityNotification.md)
 Invoke action sendActivityNotification
@@ -535,6 +550,12 @@ Invoke action cancel
 
 ### [Stop-MgUserEventInstance](Stop-MgUserEventInstance.md)
 Invoke action cancel
+
+### [Stop-MgUserPendingAccessReviewInstance](Stop-MgUserPendingAccessReviewInstance.md)
+Invoke action stop
+
+### [Stop-MgUserPendingAccessReviewInstanceDefinition](Stop-MgUserPendingAccessReviewInstanceDefinition.md)
+Invoke action stop
 
 ### [Sync-MgUserManagedDevice](Sync-MgUserManagedDevice.md)
 Invoke action syncDevice

@@ -202,7 +202,9 @@ Accept wildcard characters: False
 ```
 
 ### -AllowNewTimeProposals
-.
+True if the meeting organizer allows invitees to propose a new time when responding, false otherwise.
+Optional.
+Default is true.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -1507,7 +1509,7 @@ Accept wildcard characters: False
 ```
 
 ### -ResponseRequested
-Set to true if the sender would like a response when the event is accepted or declined.
+Default is true, which represents the organizer would like an invitee to send a response to the event.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -1777,7 +1779,7 @@ BODYPARAMETER <IMicrosoftGraphEvent1>: event
   - `[AddressPostalCode <String>]`: The postal code.
   - `[AddressState <String>]`: The state.
   - `[AddressStreet <String>]`: The street.
-  - `[AllowNewTimeProposals <Boolean?>]`: 
+  - `[AllowNewTimeProposals <Boolean?>]`: True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
   - `[Attachments <IMicrosoftGraphAttachment[]>]`: The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.
     - `[Id <String>]`: Read-only.
     - `[ContentType <String>]`: The MIME type.
@@ -1900,7 +1902,7 @@ BODYPARAMETER <IMicrosoftGraphEvent1>: event
   - `[RangeStartDate <DateTime?>]`: The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.
   - `[RangeType <String>]`: recurrenceRangeType
   - `[ReminderMinutesBeforeStart <Int32?>]`: The number of minutes before the event start time that the reminder alert occurs.
-  - `[ResponseRequested <Boolean?>]`: Set to true if the sender would like a response when the event is accepted or declined.
+  - `[ResponseRequested <Boolean?>]`: Default is true, which represents the organizer would like an invitee to send a response to the event.
   - `[ResponseStatusResponse <String>]`: responseType
   - `[ResponseStatusTime <DateTime?>]`: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
   - `[Sensitivity <String>]`: sensitivity
@@ -1924,7 +1926,7 @@ CALENDAREVENTS <IMicrosoftGraphEvent1[]>: The events in the calendar. Navigation
   - `[AddressPostalCode <String>]`: The postal code.
   - `[AddressState <String>]`: The state.
   - `[AddressStreet <String>]`: The street.
-  - `[AllowNewTimeProposals <Boolean?>]`: 
+  - `[AllowNewTimeProposals <Boolean?>]`: True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
   - `[Attachments <IMicrosoftGraphAttachment[]>]`: The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.
     - `[Id <String>]`: Read-only.
     - `[ContentType <String>]`: The MIME type.
@@ -2047,7 +2049,7 @@ CALENDAREVENTS <IMicrosoftGraphEvent1[]>: The events in the calendar. Navigation
   - `[RangeStartDate <DateTime?>]`: The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.
   - `[RangeType <String>]`: recurrenceRangeType
   - `[ReminderMinutesBeforeStart <Int32?>]`: The number of minutes before the event start time that the reminder alert occurs.
-  - `[ResponseRequested <Boolean?>]`: Set to true if the sender would like a response when the event is accepted or declined.
+  - `[ResponseRequested <Boolean?>]`: Default is true, which represents the organizer would like an invitee to send a response to the event.
   - `[ResponseStatusResponse <String>]`: responseType
   - `[ResponseStatusTime <DateTime?>]`: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
   - `[Sensitivity <String>]`: sensitivity
@@ -2088,7 +2090,7 @@ CALENDARVIEW <IMicrosoftGraphEvent1[]>: The calendar view for the calendar. Navi
   - `[AddressPostalCode <String>]`: The postal code.
   - `[AddressState <String>]`: The state.
   - `[AddressStreet <String>]`: The street.
-  - `[AllowNewTimeProposals <Boolean?>]`: 
+  - `[AllowNewTimeProposals <Boolean?>]`: True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
   - `[Attachments <IMicrosoftGraphAttachment[]>]`: The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.
     - `[Id <String>]`: Read-only.
     - `[ContentType <String>]`: The MIME type.
@@ -2211,7 +2213,7 @@ CALENDARVIEW <IMicrosoftGraphEvent1[]>: The calendar view for the calendar. Navi
   - `[RangeStartDate <DateTime?>]`: The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.
   - `[RangeType <String>]`: recurrenceRangeType
   - `[ReminderMinutesBeforeStart <Int32?>]`: The number of minutes before the event start time that the reminder alert occurs.
-  - `[ResponseRequested <Boolean?>]`: Set to true if the sender would like a response when the event is accepted or declined.
+  - `[ResponseRequested <Boolean?>]`: Default is true, which represents the organizer would like an invitee to send a response to the event.
   - `[ResponseStatusResponse <String>]`: responseType
   - `[ResponseStatusTime <DateTime?>]`: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
   - `[Sensitivity <String>]`: sensitivity
@@ -2252,7 +2254,7 @@ INSTANCES <IMicrosoftGraphEvent1[]>: The instances of the event. Navigation prop
   - `[AddressPostalCode <String>]`: The postal code.
   - `[AddressState <String>]`: The state.
   - `[AddressStreet <String>]`: The street.
-  - `[AllowNewTimeProposals <Boolean?>]`: 
+  - `[AllowNewTimeProposals <Boolean?>]`: True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
   - `[Attachments <IMicrosoftGraphAttachment[]>]`: The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.
     - `[Id <String>]`: Read-only.
     - `[ContentType <String>]`: The MIME type.
@@ -2375,7 +2377,7 @@ INSTANCES <IMicrosoftGraphEvent1[]>: The instances of the event. Navigation prop
   - `[RangeStartDate <DateTime?>]`: The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.
   - `[RangeType <String>]`: recurrenceRangeType
   - `[ReminderMinutesBeforeStart <Int32?>]`: The number of minutes before the event start time that the reminder alert occurs.
-  - `[ResponseRequested <Boolean?>]`: Set to true if the sender would like a response when the event is accepted or declined.
+  - `[ResponseRequested <Boolean?>]`: Default is true, which represents the organizer would like an invitee to send a response to the event.
   - `[ResponseStatusResponse <String>]`: responseType
   - `[ResponseStatusTime <DateTime?>]`: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
   - `[Sensitivity <String>]`: sensitivity

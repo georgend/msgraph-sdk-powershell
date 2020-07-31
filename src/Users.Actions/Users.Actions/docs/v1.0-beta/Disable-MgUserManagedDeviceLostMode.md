@@ -12,13 +12,13 @@ Invoke action disableLostMode
 
 ## SYNTAX
 
-### Disable1 (Default)
+### Disable (Default)
 ```
 Disable-MgUserManagedDeviceLostMode -ManagedDeviceId <String> -UserId <String> [-PassThru] [-Confirm]
  [-WhatIf] [<CommonParameters>]
 ```
 
-### DisableViaIdentity1
+### DisableViaIdentity
 ```
 Disable-MgUserManagedDeviceLostMode -InputObject <IUsersActionsIdentity> [-PassThru] [-Confirm] [-WhatIf]
  [<CommonParameters>]
@@ -55,7 +55,7 @@ To construct, see NOTES section for INPUTOBJECT properties and create a hash tab
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IUsersActionsIdentity
-Parameter Sets: DisableViaIdentity1
+Parameter Sets: DisableViaIdentity
 Aliases:
 
 Required: True
@@ -70,7 +70,7 @@ key: managedDevice-id of managedDevice
 
 ```yaml
 Type: System.String
-Parameter Sets: Disable1
+Parameter Sets: Disable
 Aliases:
 
 Required: True
@@ -100,7 +100,7 @@ key: user-id of user
 
 ```yaml
 Type: System.String
-Parameter Sets: Disable1
+Parameter Sets: Disable
 Aliases:
 
 Required: True
@@ -162,11 +162,13 @@ To create the parameters described below, construct a hash table containing the 
 
 
 INPUTOBJECT <IUsersActionsIdentity>: Identity Parameter
+  - `[AccessReviewInstanceId <String>]`: key: accessReviewInstance-id of accessReviewInstance
   - `[AppLogCollectionRequestId <String>]`: key: appLogCollectionRequest-id of appLogCollectionRequest
   - `[AuthenticationMethodId <String>]`: key: authenticationMethod-id of authenticationMethod
   - `[CalendarGroupId <String>]`: key: calendarGroup-id of calendarGroup
   - `[CalendarId <String>]`: key: calendar-id of calendar
   - `[DeviceEnrollmentConfigurationId <String>]`: key: deviceEnrollmentConfiguration-id of deviceEnrollmentConfiguration
+  - `[DeviceLogCollectionResponseId <String>]`: key: deviceLogCollectionResponse-id of deviceLogCollectionResponse
   - `[EventId <String>]`: key: event-id of event
   - `[EventId1 <String>]`: key: event-id of event
   - `[MailFolderId <String>]`: key: mailFolder-id of mailFolder
@@ -181,7 +183,6 @@ INPUTOBJECT <IUsersActionsIdentity>: Identity Parameter
   - `[OutlookTaskGroupId <String>]`: key: outlookTaskGroup-id of outlookTaskGroup
   - `[OutlookTaskId <String>]`: key: outlookTask-id of outlookTask
   - `[SectionGroupId <String>]`: key: sectionGroup-id of sectionGroup
-  - `[TeamsAppInstallationId <String>]`: key: teamsAppInstallation-id of teamsAppInstallation
   - `[UserId <String>]`: key: user-id of user
   - `[WindowsInformationProtectionDeviceRegistrationId <String>]`: key: windowsInformationProtectionDeviceRegistration-id of windowsInformationProtectionDeviceRegistration
 

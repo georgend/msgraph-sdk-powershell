@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Planner
-Module Guid: 7060221c-17a4-48ac-aeb0-432e9718543e
+Module Guid: 47be2df6-0af1-4952-a365-845e310f11a4
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.planner
 Help Version: 1.0.0.0
 Locale: en-US

@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Identity.AccessReviews
-Module Guid: 2a351553-8254-4c46-aa04-1213b2d0ad25
+Module Guid: b6f44652-a537-4921-a6b0-c6ab74093444
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.accessreviews
 Help Version: 1.0.0.0
 Locale: en-US

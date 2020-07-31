@@ -32,8 +32,8 @@ Update-MgPrintPrinter -PrinterId <String> [-AcceptingJobs] [-AllowedGroups <IMic
  [-LocationStateOrProvince <String>] [-LocationStreetAddress <String>] [-LocationSubdivision <String[]>]
  [-LocationSubunit <String[]>] [-Manufacturer <String>] [-Model <String>] [-Name <String>]
  [-RegisteredDateTime <DateTime>] [-Share <IMicrosoftGraphPrinterShare>] [-StatusProcessingState <String>]
- [-StatusProcessingStateDescription <String>] [-StatusProcessingStateReasons <String[]>] [-PassThru]
- [-Confirm] [-WhatIf] [<CommonParameters>]
+ [-StatusProcessingStateDescription <String>] [-StatusProcessingStateReasons <String[]>]
+ [-TaskTriggers <IMicrosoftGraphPrintTaskTrigger[]>] [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Update
@@ -69,7 +69,8 @@ Update-MgPrintPrinter -InputObject <IDevicesCloudPrintIdentity> [-AcceptingJobs]
  [-LocationSubdivision <String[]>] [-LocationSubunit <String[]>] [-Manufacturer <String>] [-Model <String>]
  [-Name <String>] [-RegisteredDateTime <DateTime>] [-Share <IMicrosoftGraphPrinterShare>]
  [-StatusProcessingState <String>] [-StatusProcessingStateDescription <String>]
- [-StatusProcessingStateReasons <String[]>] [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
+ [-StatusProcessingStateReasons <String[]>] [-TaskTriggers <IMicrosoftGraphPrintTaskTrigger[]>] [-PassThru]
+ [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -358,7 +359,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultMediaType
-printMediaType
+.
 
 ```yaml
 Type: System.String
@@ -1005,6 +1006,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -TaskTriggers
+.
+To construct, see NOTES section for TASKTRIGGERS properties and create a hash table.
+
+```yaml
+Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPrintTaskTrigger[]
+Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Confirm
 Prompts you for confirmation before running the cmdlet.
 
@@ -1128,7 +1145,7 @@ BODYPARAMETER <IMicrosoftGraphPrinter>: printer
   - `[DefaultFitPdfToPage <Boolean?>]`: 
   - `[DefaultMediaColor <String>]`: 
   - `[DefaultMediaSize <String>]`: 
-  - `[DefaultMediaType <String>]`: printMediaType
+  - `[DefaultMediaType <String>]`: 
   - `[DefaultMultipageLayout <String>]`: printMultipageLayout
   - `[DefaultOrientation <String>]`: printOrientation
   - `[DefaultOutputBin <String>]`: 
@@ -1149,22 +1166,59 @@ BODYPARAMETER <IMicrosoftGraphPrinter>: printer
     - `[CreatedDateTime <DateTime?>]`: 
     - `[Documents <IMicrosoftGraphPrintDocument[]>]`: 
       - `[Id <String>]`: Read-only.
-      - `[DocumentConfigurationColorConfiguration <String>]`: printColorConfiguration
-      - `[DocumentConfigurationCopies <Int32?>]`: 
-      - `[DocumentConfigurationDuplexConfiguration <String>]`: printDuplexConfiguration
-      - `[DocumentConfigurationFeedDirection <String>]`: printerFeedDirection
-      - `[DocumentConfigurationOrientation <String>]`: printOrientation
-      - `[DocumentConfigurationPageRanges <IMicrosoftGraphPrintPageRange[]>]`: 
-        - `[EndPage <Int32?>]`: 
-        - `[StartPage <Int32?>]`: 
-      - `[DocumentConfigurationPrintQuality <String>]`: printQuality
-      - `[DocumentConfigurationPrintResolutionInDpi <Int32?>]`: 
-      - `[MimeType <String>]`: 
-      - `[Name <String>]`: 
-      - `[SizeInBytes <Int64?>]`: 
+      - `[ConfigurationCollate <Boolean?>]`: 
+      - `[ConfigurationColorMode <String>]`: printColorMode
+      - `[ConfigurationCopies <Int32?>]`: 
+      - `[ConfigurationDpi <Int32?>]`: 
+      - `[ConfigurationDuplexMode <String>]`: printDuplexMode
+      - `[ConfigurationFeedDirection <String>]`: printerFeedDirection
+      - `[ConfigurationFinishings <String[]>]`: 
+      - `[ConfigurationFitPdfToPage <Boolean?>]`: 
+      - `[ConfigurationInputBin <String>]`: 
+      - `[ConfigurationMediaSize <String>]`: 
+      - `[ConfigurationMediaType <String>]`: 
+      - `[ConfigurationMultipageLayout <String>]`: printMultipageLayout
+      - `[ConfigurationOrientation <String>]`: printOrientation
+      - `[ConfigurationOutputBin <String>]`: 
+      - `[ConfigurationPageRanges <IMicrosoftGraphIntegerRange[]>]`: 
+        - `[End <Int64?>]`: 
+        - `[Maximum <Int64?>]`: 
+        - `[Minimum <Int64?>]`: 
+        - `[Start <Int64?>]`: 
+      - `[ConfigurationPagesPerSheet <Int32?>]`: 
+      - `[ConfigurationQuality <String>]`: printQuality
+      - `[ConfigurationScaling <String>]`: printScaling
+      - `[ContentType <String>]`: 
+      - `[DisplayName <String>]`: 
+      - `[MarginBottom <Int32?>]`: 
+      - `[MarginLeft <Int32?>]`: 
+      - `[MarginRight <Int32?>]`: 
+      - `[MarginTop <Int32?>]`: 
+      - `[Size <Int64?>]`: 
     - `[StatusAcquiredByPrinter <Boolean?>]`: 
     - `[StatusProcessingState <String>]`: printJobProcessingState
     - `[StatusProcessingStateDescription <String>]`: 
+    - `[Tasks <IMicrosoftGraphPrintTask[]>]`: 
+      - `[Id <String>]`: Read-only.
+      - `[DefinitionCreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+      - `[DefinitionCreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+      - `[DefinitionCreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+      - `[DefinitionCreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+      - `[DisplayName <String>]`: 
+      - `[MicrosoftGraphEntityId <String>]`: Read-only.
+      - `[ParentUrl <String>]`: 
+      - `[StatusDescription <String>]`: 
+      - `[StatusState <String>]`: printTaskProcessingState
+      - `[Tasks <IMicrosoftGraphPrintTask[]>]`: 
+      - `[TriggerDefinitionCreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+      - `[TriggerDefinitionCreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+      - `[TriggerDefinitionCreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+      - `[TriggerDefinitionCreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+      - `[TriggerDefinitionDisplayName <String>]`: 
+      - `[TriggerDefinitionId <String>]`: Read-only.
+      - `[TriggerDefinitionTasks <IMicrosoftGraphPrintTask[]>]`: 
+      - `[TriggerEvent <String>]`: printEvent
+      - `[TriggerId <String>]`: Read-only.
   - `[LocationAltitudeInMeters <Int32?>]`: 
   - `[LocationBuilding <String>]`: 
   - `[LocationCity <String>]`: 
@@ -1238,7 +1292,7 @@ BODYPARAMETER <IMicrosoftGraphPrinter>: printer
     - `[DefaultFitPdfToPage <Boolean?>]`: 
     - `[DefaultMediaColor <String>]`: 
     - `[DefaultMediaSize <String>]`: 
-    - `[DefaultMediaType <String>]`: printMediaType
+    - `[DefaultMediaType <String>]`: 
     - `[DefaultMultipageLayout <String>]`: printMultipageLayout
     - `[DefaultOrientation <String>]`: printOrientation
     - `[DefaultOutputBin <String>]`: 
@@ -1279,6 +1333,16 @@ BODYPARAMETER <IMicrosoftGraphPrinter>: printer
     - `[AllowedUsers <IMicrosoftGraphPrintUserIdentity[]>]`: 
     - `[CreatedDateTime <DateTime?>]`: 
     - `[Printer <IMicrosoftGraphPrinter>]`: printer
+  - `[TaskTriggers <IMicrosoftGraphPrintTaskTrigger[]>]`: 
+    - `[Id <String>]`: Read-only.
+    - `[CreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+    - `[CreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+    - `[CreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+    - `[CreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+    - `[DefinitionDisplayName <String>]`: 
+    - `[DefinitionId <String>]`: Read-only.
+    - `[DefinitionTasks <IMicrosoftGraphPrintTask[]>]`: 
+    - `[Event <String>]`: printEvent
 
 CAPABILITIES <IMicrosoftGraphPrinterCapabilities>: printerCapabilities
   - `[BottomMargins <Int32[]>]`: 
@@ -1361,8 +1425,12 @@ INPUTOBJECT <IDevicesCloudPrintIdentity>: Identity Parameter
   - `[PeriodStart <DateTime?>]`: 
   - `[PrintConnectorId <String>]`: key: printConnector-id of printConnector
   - `[PrintIdentityId <String>]`: key: printIdentity-id of printIdentity
+  - `[PrintOperationId <String>]`: key: printOperation-id of printOperation
   - `[PrintServiceEndpointId <String>]`: key: printServiceEndpoint-id of printServiceEndpoint
   - `[PrintServiceId <String>]`: key: printService-id of printService
+  - `[PrintTaskDefinitionId <String>]`: key: printTaskDefinition-id of printTaskDefinition
+  - `[PrintTaskId <String>]`: key: printTask-id of printTask
+  - `[PrintTaskTriggerId <String>]`: key: printTaskTrigger-id of printTaskTrigger
   - `[PrintUserIdentityId <String>]`: key: printUserIdentity-id of printUserIdentity
   - `[PrinterId <String>]`: key: printer-id of printer
   - `[PrinterId1 <String>]`: 
@@ -1381,22 +1449,59 @@ JOBS <IMicrosoftGraphPrintJob[]>: .
   - `[CreatedDateTime <DateTime?>]`: 
   - `[Documents <IMicrosoftGraphPrintDocument[]>]`: 
     - `[Id <String>]`: Read-only.
-    - `[DocumentConfigurationColorConfiguration <String>]`: printColorConfiguration
-    - `[DocumentConfigurationCopies <Int32?>]`: 
-    - `[DocumentConfigurationDuplexConfiguration <String>]`: printDuplexConfiguration
-    - `[DocumentConfigurationFeedDirection <String>]`: printerFeedDirection
-    - `[DocumentConfigurationOrientation <String>]`: printOrientation
-    - `[DocumentConfigurationPageRanges <IMicrosoftGraphPrintPageRange[]>]`: 
-      - `[EndPage <Int32?>]`: 
-      - `[StartPage <Int32?>]`: 
-    - `[DocumentConfigurationPrintQuality <String>]`: printQuality
-    - `[DocumentConfigurationPrintResolutionInDpi <Int32?>]`: 
-    - `[MimeType <String>]`: 
-    - `[Name <String>]`: 
-    - `[SizeInBytes <Int64?>]`: 
+    - `[ConfigurationCollate <Boolean?>]`: 
+    - `[ConfigurationColorMode <String>]`: printColorMode
+    - `[ConfigurationCopies <Int32?>]`: 
+    - `[ConfigurationDpi <Int32?>]`: 
+    - `[ConfigurationDuplexMode <String>]`: printDuplexMode
+    - `[ConfigurationFeedDirection <String>]`: printerFeedDirection
+    - `[ConfigurationFinishings <String[]>]`: 
+    - `[ConfigurationFitPdfToPage <Boolean?>]`: 
+    - `[ConfigurationInputBin <String>]`: 
+    - `[ConfigurationMediaSize <String>]`: 
+    - `[ConfigurationMediaType <String>]`: 
+    - `[ConfigurationMultipageLayout <String>]`: printMultipageLayout
+    - `[ConfigurationOrientation <String>]`: printOrientation
+    - `[ConfigurationOutputBin <String>]`: 
+    - `[ConfigurationPageRanges <IMicrosoftGraphIntegerRange[]>]`: 
+      - `[End <Int64?>]`: 
+      - `[Maximum <Int64?>]`: 
+      - `[Minimum <Int64?>]`: 
+      - `[Start <Int64?>]`: 
+    - `[ConfigurationPagesPerSheet <Int32?>]`: 
+    - `[ConfigurationQuality <String>]`: printQuality
+    - `[ConfigurationScaling <String>]`: printScaling
+    - `[ContentType <String>]`: 
+    - `[DisplayName <String>]`: 
+    - `[MarginBottom <Int32?>]`: 
+    - `[MarginLeft <Int32?>]`: 
+    - `[MarginRight <Int32?>]`: 
+    - `[MarginTop <Int32?>]`: 
+    - `[Size <Int64?>]`: 
   - `[StatusAcquiredByPrinter <Boolean?>]`: 
   - `[StatusProcessingState <String>]`: printJobProcessingState
   - `[StatusProcessingStateDescription <String>]`: 
+  - `[Tasks <IMicrosoftGraphPrintTask[]>]`: 
+    - `[Id <String>]`: Read-only.
+    - `[DefinitionCreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+    - `[DefinitionCreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+    - `[DefinitionCreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+    - `[DefinitionCreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+    - `[DisplayName <String>]`: 
+    - `[MicrosoftGraphEntityId <String>]`: Read-only.
+    - `[ParentUrl <String>]`: 
+    - `[StatusDescription <String>]`: 
+    - `[StatusState <String>]`: printTaskProcessingState
+    - `[Tasks <IMicrosoftGraphPrintTask[]>]`: 
+    - `[TriggerDefinitionCreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+    - `[TriggerDefinitionCreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+    - `[TriggerDefinitionCreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+    - `[TriggerDefinitionCreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+    - `[TriggerDefinitionDisplayName <String>]`: 
+    - `[TriggerDefinitionId <String>]`: Read-only.
+    - `[TriggerDefinitionTasks <IMicrosoftGraphPrintTask[]>]`: 
+    - `[TriggerEvent <String>]`: printEvent
+    - `[TriggerId <String>]`: Read-only.
 
 SHARE <IMicrosoftGraphPrinterShare>: printerShare
   - `[Capabilities <IMicrosoftGraphPrinterCapabilities>]`: printerCapabilities
@@ -1458,7 +1563,7 @@ SHARE <IMicrosoftGraphPrinterShare>: printerShare
   - `[DefaultFitPdfToPage <Boolean?>]`: 
   - `[DefaultMediaColor <String>]`: 
   - `[DefaultMediaSize <String>]`: 
-  - `[DefaultMediaType <String>]`: printMediaType
+  - `[DefaultMediaType <String>]`: 
   - `[DefaultMultipageLayout <String>]`: printMultipageLayout
   - `[DefaultOrientation <String>]`: printOrientation
   - `[DefaultOutputBin <String>]`: 
@@ -1479,22 +1584,59 @@ SHARE <IMicrosoftGraphPrinterShare>: printerShare
     - `[CreatedDateTime <DateTime?>]`: 
     - `[Documents <IMicrosoftGraphPrintDocument[]>]`: 
       - `[Id <String>]`: Read-only.
-      - `[DocumentConfigurationColorConfiguration <String>]`: printColorConfiguration
-      - `[DocumentConfigurationCopies <Int32?>]`: 
-      - `[DocumentConfigurationDuplexConfiguration <String>]`: printDuplexConfiguration
-      - `[DocumentConfigurationFeedDirection <String>]`: printerFeedDirection
-      - `[DocumentConfigurationOrientation <String>]`: printOrientation
-      - `[DocumentConfigurationPageRanges <IMicrosoftGraphPrintPageRange[]>]`: 
-        - `[EndPage <Int32?>]`: 
-        - `[StartPage <Int32?>]`: 
-      - `[DocumentConfigurationPrintQuality <String>]`: printQuality
-      - `[DocumentConfigurationPrintResolutionInDpi <Int32?>]`: 
-      - `[MimeType <String>]`: 
-      - `[Name <String>]`: 
-      - `[SizeInBytes <Int64?>]`: 
+      - `[ConfigurationCollate <Boolean?>]`: 
+      - `[ConfigurationColorMode <String>]`: printColorMode
+      - `[ConfigurationCopies <Int32?>]`: 
+      - `[ConfigurationDpi <Int32?>]`: 
+      - `[ConfigurationDuplexMode <String>]`: printDuplexMode
+      - `[ConfigurationFeedDirection <String>]`: printerFeedDirection
+      - `[ConfigurationFinishings <String[]>]`: 
+      - `[ConfigurationFitPdfToPage <Boolean?>]`: 
+      - `[ConfigurationInputBin <String>]`: 
+      - `[ConfigurationMediaSize <String>]`: 
+      - `[ConfigurationMediaType <String>]`: 
+      - `[ConfigurationMultipageLayout <String>]`: printMultipageLayout
+      - `[ConfigurationOrientation <String>]`: printOrientation
+      - `[ConfigurationOutputBin <String>]`: 
+      - `[ConfigurationPageRanges <IMicrosoftGraphIntegerRange[]>]`: 
+        - `[End <Int64?>]`: 
+        - `[Maximum <Int64?>]`: 
+        - `[Minimum <Int64?>]`: 
+        - `[Start <Int64?>]`: 
+      - `[ConfigurationPagesPerSheet <Int32?>]`: 
+      - `[ConfigurationQuality <String>]`: printQuality
+      - `[ConfigurationScaling <String>]`: printScaling
+      - `[ContentType <String>]`: 
+      - `[DisplayName <String>]`: 
+      - `[MarginBottom <Int32?>]`: 
+      - `[MarginLeft <Int32?>]`: 
+      - `[MarginRight <Int32?>]`: 
+      - `[MarginTop <Int32?>]`: 
+      - `[Size <Int64?>]`: 
     - `[StatusAcquiredByPrinter <Boolean?>]`: 
     - `[StatusProcessingState <String>]`: printJobProcessingState
     - `[StatusProcessingStateDescription <String>]`: 
+    - `[Tasks <IMicrosoftGraphPrintTask[]>]`: 
+      - `[Id <String>]`: Read-only.
+      - `[DefinitionCreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+      - `[DefinitionCreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+      - `[DefinitionCreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+      - `[DefinitionCreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+      - `[DisplayName <String>]`: 
+      - `[MicrosoftGraphEntityId <String>]`: Read-only.
+      - `[ParentUrl <String>]`: 
+      - `[StatusDescription <String>]`: 
+      - `[StatusState <String>]`: printTaskProcessingState
+      - `[Tasks <IMicrosoftGraphPrintTask[]>]`: 
+      - `[TriggerDefinitionCreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+      - `[TriggerDefinitionCreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+      - `[TriggerDefinitionCreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+      - `[TriggerDefinitionCreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+      - `[TriggerDefinitionDisplayName <String>]`: 
+      - `[TriggerDefinitionId <String>]`: Read-only.
+      - `[TriggerDefinitionTasks <IMicrosoftGraphPrintTask[]>]`: 
+      - `[TriggerEvent <String>]`: printEvent
+      - `[TriggerId <String>]`: Read-only.
   - `[LocationAltitudeInMeters <Int32?>]`: 
   - `[LocationBuilding <String>]`: 
   - `[LocationCity <String>]`: 
@@ -1541,7 +1683,7 @@ SHARE <IMicrosoftGraphPrinterShare>: printerShare
     - `[DefaultFitPdfToPage <Boolean?>]`: 
     - `[DefaultMediaColor <String>]`: 
     - `[DefaultMediaSize <String>]`: 
-    - `[DefaultMediaType <String>]`: printMediaType
+    - `[DefaultMediaType <String>]`: 
     - `[DefaultMultipageLayout <String>]`: printMultipageLayout
     - `[DefaultOrientation <String>]`: printOrientation
     - `[DefaultOutputBin <String>]`: 
@@ -1609,6 +1751,47 @@ SHARE <IMicrosoftGraphPrinterShare>: printerShare
     - `[IsShared <Boolean?>]`: 
     - `[RegisteredDateTime <DateTime?>]`: 
     - `[Share <IMicrosoftGraphPrinterShare>]`: printerShare
+    - `[TaskTriggers <IMicrosoftGraphPrintTaskTrigger[]>]`: 
+      - `[Id <String>]`: Read-only.
+      - `[CreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+      - `[CreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+      - `[CreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+      - `[CreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+      - `[DefinitionDisplayName <String>]`: 
+      - `[DefinitionId <String>]`: Read-only.
+      - `[DefinitionTasks <IMicrosoftGraphPrintTask[]>]`: 
+      - `[Event <String>]`: printEvent
+
+TASKTRIGGERS <IMicrosoftGraphPrintTaskTrigger[]>: .
+  - `[Id <String>]`: Read-only.
+  - `[CreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+  - `[CreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+  - `[CreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+  - `[CreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+  - `[DefinitionDisplayName <String>]`: 
+  - `[DefinitionId <String>]`: Read-only.
+  - `[DefinitionTasks <IMicrosoftGraphPrintTask[]>]`: 
+    - `[Id <String>]`: Read-only.
+    - `[DefinitionCreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+    - `[DefinitionCreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+    - `[DefinitionCreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+    - `[DefinitionCreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+    - `[DisplayName <String>]`: 
+    - `[MicrosoftGraphEntityId <String>]`: Read-only.
+    - `[ParentUrl <String>]`: 
+    - `[StatusDescription <String>]`: 
+    - `[StatusState <String>]`: printTaskProcessingState
+    - `[Tasks <IMicrosoftGraphPrintTask[]>]`: 
+    - `[TriggerDefinitionCreatedByAppId <String>]`: Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+    - `[TriggerDefinitionCreatedByDisplayName <String>]`: Refers to the Application Name displayed in the Azure Portal.
+    - `[TriggerDefinitionCreatedByServicePrincipalId <String>]`: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+    - `[TriggerDefinitionCreatedByServicePrincipalName <String>]`: Refers to the Service Principal Name is the Application name in the tenant.
+    - `[TriggerDefinitionDisplayName <String>]`: 
+    - `[TriggerDefinitionId <String>]`: Read-only.
+    - `[TriggerDefinitionTasks <IMicrosoftGraphPrintTask[]>]`: 
+    - `[TriggerEvent <String>]`: printEvent
+    - `[TriggerId <String>]`: Read-only.
+  - `[Event <String>]`: printEvent
 
 ## RELATED LINKS
 

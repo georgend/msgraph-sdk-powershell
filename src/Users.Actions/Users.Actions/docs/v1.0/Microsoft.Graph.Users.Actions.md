@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Users.Actions
-Module Guid: b17f9606-3e24-4a10-9400-ba1c9cd6e453
+Module Guid: 575be504-205e-41f2-9065-70c73c939228
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.users.actions
 Help Version: 1.0.0.0
 Locale: en-US
@@ -88,6 +88,9 @@ Invoke action locateDevice
 
 ### [Find-MgUserMeetingTime](Find-MgUserMeetingTime.md)
 Invoke action findMeetingTimes
+
+### [Get-MgUserAvailableExtensionProperty](Get-MgUserAvailableExtensionProperty.md)
+Invoke action getAvailableExtensionProperties
 
 ### [Get-MgUserById](Get-MgUserById.md)
 Invoke action getByIds

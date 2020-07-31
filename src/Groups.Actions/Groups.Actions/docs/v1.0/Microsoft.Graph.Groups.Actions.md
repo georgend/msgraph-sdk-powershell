@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Groups.Actions
-Module Guid: 0bf7080f-fef8-4a72-b4ad-ded3b7eb5db0
+Module Guid: b0b941b2-cabf-4722-ab57-dc8995fd54c4
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.groups.actions
 Help Version: 1.0.0.0
 Locale: en-US
@@ -61,6 +61,9 @@ Invoke action copyToNotebook
 
 ### [Copy-MgGroupOnenoteSectionToSectionGroup](Copy-MgGroupOnenoteSectionToSectionGroup.md)
 Invoke action copyToSectionGroup
+
+### [Get-MgGroupAvailableExtensionProperty](Get-MgGroupAvailableExtensionProperty.md)
+Invoke action getAvailableExtensionProperties
 
 ### [Get-MgGroupById](Get-MgGroupById.md)
 Invoke action getByIds

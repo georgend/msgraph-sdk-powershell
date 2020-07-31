@@ -213,11 +213,13 @@ BODYPARAMETER <IPaths3Mx0JpUsersUserIdMicrosoftGraphChangepasswordPostRequestbod
   - `[NewPassword <String>]`: 
 
 INPUTOBJECT <IUsersActionsIdentity>: Identity Parameter
+  - `[AccessReviewInstanceId <String>]`: key: accessReviewInstance-id of accessReviewInstance
   - `[AppLogCollectionRequestId <String>]`: key: appLogCollectionRequest-id of appLogCollectionRequest
   - `[AuthenticationMethodId <String>]`: key: authenticationMethod-id of authenticationMethod
   - `[CalendarGroupId <String>]`: key: calendarGroup-id of calendarGroup
   - `[CalendarId <String>]`: key: calendar-id of calendar
   - `[DeviceEnrollmentConfigurationId <String>]`: key: deviceEnrollmentConfiguration-id of deviceEnrollmentConfiguration
+  - `[DeviceLogCollectionResponseId <String>]`: key: deviceLogCollectionResponse-id of deviceLogCollectionResponse
   - `[EventId <String>]`: key: event-id of event
   - `[EventId1 <String>]`: key: event-id of event
   - `[MailFolderId <String>]`: key: mailFolder-id of mailFolder
@@ -232,7 +234,6 @@ INPUTOBJECT <IUsersActionsIdentity>: Identity Parameter
   - `[OutlookTaskGroupId <String>]`: key: outlookTaskGroup-id of outlookTaskGroup
   - `[OutlookTaskId <String>]`: key: outlookTask-id of outlookTask
   - `[SectionGroupId <String>]`: key: sectionGroup-id of sectionGroup
-  - `[TeamsAppInstallationId <String>]`: key: teamsAppInstallation-id of teamsAppInstallation
   - `[UserId <String>]`: key: user-id of user
   - `[WindowsInformationProtectionDeviceRegistrationId <String>]`: key: windowsInformationProtectionDeviceRegistration-id of windowsInformationProtectionDeviceRegistration
 

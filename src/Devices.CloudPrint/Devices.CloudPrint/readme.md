@@ -32,6 +32,20 @@ title: $(service-name)
 subject-prefix: ''
 ```
 
+### Directives
+
+> see https://github.com/Azure/autorest/blob/master/docs/powershell/directives.md
+
+``` yaml
+directive:
+# Remove cmdlets
+  - where:
+      verb: New
+      subject: PrintPrinter
+      variant: Create|CreateExpanded
+    remove: true
+```
+
 ### Versioning
 
 ``` yaml

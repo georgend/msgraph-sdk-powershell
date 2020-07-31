@@ -18,7 +18,7 @@ ModuleVersion = '0.9.0'
 CompatiblePSEditions = 'Core', 'Desktop'
 
 # ID used to uniquely identify this module
-GUID = '0e485de3-9d36-43fc-bbdb-2b7a79c75644'
+GUID = '8ae30413-76d7-4c5e-bf5b-b07ec6f55d41'
 
 # Author of this module
 Author = 'Microsoft Corporation'

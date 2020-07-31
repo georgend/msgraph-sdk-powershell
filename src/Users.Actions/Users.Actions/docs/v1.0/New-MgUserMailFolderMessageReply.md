@@ -288,11 +288,13 @@ BODYPARAMETER <IPathsGpd5XxUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMi
     - `[WebLink <String>]`: The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.
 
 INPUTOBJECT <IUsersActionsIdentity>: Identity Parameter
+  - `[AccessReviewInstanceId <String>]`: key: accessReviewInstance-id of accessReviewInstance
   - `[AppLogCollectionRequestId <String>]`: key: appLogCollectionRequest-id of appLogCollectionRequest
   - `[AuthenticationMethodId <String>]`: key: authenticationMethod-id of authenticationMethod
   - `[CalendarGroupId <String>]`: key: calendarGroup-id of calendarGroup
   - `[CalendarId <String>]`: key: calendar-id of calendar
   - `[DeviceEnrollmentConfigurationId <String>]`: key: deviceEnrollmentConfiguration-id of deviceEnrollmentConfiguration
+  - `[DeviceLogCollectionResponseId <String>]`: key: deviceLogCollectionResponse-id of deviceLogCollectionResponse
   - `[EventId <String>]`: key: event-id of event
   - `[EventId1 <String>]`: key: event-id of event
   - `[MailFolderId <String>]`: key: mailFolder-id of mailFolder
@@ -307,7 +309,6 @@ INPUTOBJECT <IUsersActionsIdentity>: Identity Parameter
   - `[OutlookTaskGroupId <String>]`: key: outlookTaskGroup-id of outlookTaskGroup
   - `[OutlookTaskId <String>]`: key: outlookTask-id of outlookTask
   - `[SectionGroupId <String>]`: key: sectionGroup-id of sectionGroup
-  - `[TeamsAppInstallationId <String>]`: key: teamsAppInstallation-id of teamsAppInstallation
   - `[UserId <String>]`: key: user-id of user
   - `[WindowsInformationProtectionDeviceRegistrationId <String>]`: key: windowsInformationProtectionDeviceRegistration-id of windowsInformationProtectionDeviceRegistration
 

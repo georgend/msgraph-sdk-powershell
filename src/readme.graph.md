@@ -84,6 +84,7 @@ directive:
     - microsoft.graph.governanceResource
     - microsoft.graph.governanceRoleAssignment
     - microsoft.graph.governanceRoleDefinition
+    - microsoft.graph.workbookOperationError
 
   # Set parameter alias
   - where:
