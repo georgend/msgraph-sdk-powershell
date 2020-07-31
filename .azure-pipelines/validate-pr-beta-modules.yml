@@ -53,7 +53,7 @@ jobs:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: Service Modules'
     inputs:
-      PathtoPublish: Staging
+      PathtoPublish: $(System.DefaultWorkingDirectory)
       ArtifactName: PSServiceModules
   
   - task: YodLabs.O365PostMessage.O365PostMessageBuild.O365PostMessageBuild@0
