@@ -66,10 +66,10 @@ $ModuleMapping.Keys | ForEach-Object -Parallel {
     [VersionState]$VersionState = & $using:ValidateUpdatedModuleVersionPS1 -ModuleName $FullModuleName -NextVersion $ModuleVersion
 
     if ($VersionState.Equals([VersionState]::Invalid) -and !$using:SkipVersionCheck) {
-        Write-Error "The specified version in $FullModuleName module is either higher or lower than what's on $using:RepositoryName. Update the 'module-version' in $ModuleLevelReadMePath"
+        Write-Error "The specified version in $FullModuleName module is either higher or lower than what's on PSGallery. Update the 'module-version' in $ModuleLevelReadMePath"
     }
     elseif ($VersionState.Equals([VersionState]::EqualToFeed) -and !$using:SkipVersionCheck) {
-        Write-Warning "$FullModuleName module skipped. Version has not changed and is equal to what's on $using:RepositoryName."
+        Write-Warning "$FullModuleName module skipped. Version has not changed and is equal to what's on PSGallery."
     }
     elseif ($VersionState.Equals([VersionState]::Valid) -or $VersionState.Equals([VersionState]::NotOnFeed) -or $using:SkipVersionCheck) {
         # Read release notes from readme.

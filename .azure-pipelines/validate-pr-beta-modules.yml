@@ -17,6 +17,7 @@ trigger: none
 
 variables:
   MODULE_MAPPING_BETA: '$(System.DefaultWorkingDirectory)/config/ModulesMappingBeta.jsonc'
+  BUILD_NUMBER: '$(Build.BuildNumber)$(Hours)$(Minutes)'
 
 jobs:
 - job: MSGraphPSSDKValidation
@@ -58,7 +59,7 @@ jobs:
         [HashTable] $ModuleMapping = Get-Content $(MODULE_MAPPING_BETA) | ConvertFrom-Json -AsHashTable
         $ModuleMapping.Keys | ForEach-Object -Parallel {
             $ModuleName = $_
-            & $(System.DefaultWorkingDirectory)/tools/PackModule.ps1 -Module $ModuleName -ArtifactsLocation $(Build.ArtifactStagingDirectory)
+            & $(System.DefaultWorkingDirectory)/tools/PackModule.ps1 -Module $ModuleName -ArtifactsLocation $(Build.ArtifactStagingDirectory) -ModulePreviewNumber $(BUILD_NUMBER) -RepositoryName $(PS_DEV_FEED)
         }
       pwsh: true
   
