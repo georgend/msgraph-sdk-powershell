@@ -24,8 +24,8 @@ jobs:
   steps:
   - task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@2
     displayName: 'Run: CredScan'
-    toolMajorVersion: V2
     inputs:
+      toolMajorVersion: V2
       debugMode: false
   
   - task: PowerShell@2
