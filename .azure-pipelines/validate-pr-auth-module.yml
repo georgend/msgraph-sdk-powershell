@@ -54,7 +54,7 @@ jobs:
     displayName: 'Publish Artifact: Auth Module'
     inputs:
       pathToPublish: '$(Build.ArtifactStagingDirectory)'
-      artifactName: PSAuthModule
+      artifactName: drop
   
   - task: YodLabs.O365PostMessage.O365PostMessageBuild.O365PostMessageBuild@0
     displayName: 'Graph Client Tooling pipeline fail notification'
