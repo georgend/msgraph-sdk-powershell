@@ -65,8 +65,8 @@ jobs:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: Service Modules'
     inputs:
-      PathtoPublish: $(System.ArtifactStagingDirectory)
-      ArtifactName: PSServiceModules
+      pathToPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: PSServiceModules
   
   - task: YodLabs.O365PostMessage.O365PostMessageBuild.O365PostMessageBuild@0
     displayName: 'Graph Client Tooling pipeline fail notification'
