@@ -16,44 +16,56 @@ pr:
 trigger: none
 
 variables:
-  GRAPH_VERSION: 'beta'
+  MODULE_MAPPING_BETA: '$(System.DefaultWorkingDirectory)/config/ModulesMappingBeta.jsonc'
 
 jobs:
 - job: MSGraphPSSDKValidation
-  displayName: MS Graph PS SDK Beta Validation
+  displayName: MS Graph PS Service Module Validation
   timeoutInMinutes: 360
   pool:
     vmImage: 'windows-latest'
-
+  
   steps:
   - task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@2
-    displayName: 'Run CredScan'
+    displayName: 'Run: CredScan'
     inputs:
      toolMajorVersion: V2
      debugMode: false
-
+  
   - task: NodeTool@0
-    displayName: Node install
+    displayName: 'Install: Node'
     inputs:
       versionSpec: '13.14.0'
-
+  
   - task: Npm@1
-    displayName: 'Install AutoRest'
+    displayName: 'Install: AutoRest'
     inputs:
       command: 'custom'
       customCommand: 'install -g autorest'
-
+  
   - task: PowerShell@2
-    displayName: 'Generate and Build Graph Resource Modules'
+    displayName: 'Generate and Build: Service Modules'
     inputs:
       filePath: '$(System.DefaultWorkingDirectory)/tools/GenerateModules.ps1'
       arguments: '-Build'
       pwsh: true
   
+  - task: PowerShell@2
+    displayName: 'Pack: Service Modules'
+    inputs:
+      targetType: 'inline'
+      script: |
+        [HashTable] $ModuleMapping = Get-Content $(MODULE_MAPPING_BETA) | ConvertFrom-Json -AsHashTable
+        $ModuleMapping.Keys | ForEach-Object -Parallel {
+            $ModuleName = $_
+            & $(System.DefaultWorkingDirectory)/tools/PackModule.ps1 -Module $ModuleName -ArtifactsLocation $(Build.ArtifactStagingDirectory)
+        }
+      pwsh: true
+  
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: Service Modules'
     inputs:
-      PathtoPublish: $(System.DefaultWorkingDirectory)
+      PathtoPublish: $(System.ArtifactStagingDirectory)
       ArtifactName: PSServiceModules
   
   - task: YodLabs.O365PostMessage.O365PostMessageBuild.O365PostMessageBuild@0
