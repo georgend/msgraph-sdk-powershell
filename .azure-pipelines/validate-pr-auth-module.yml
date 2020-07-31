@@ -13,6 +13,7 @@ pr:
 trigger: none
 variables:
   MODULE_NAME: 'Authentication'
+  BUILD_NUMBER: format('{0:yyyyMMddHHmm}', pipeline.startTime)
 
 jobs:
 - job: MSGraphPSSDKValidation_Windows
@@ -32,7 +33,7 @@ jobs:
     displayName: 'Generate and Build: Auth Module'
     inputs:
       filePath: '$(System.DefaultWorkingDirectory)/tools/GenerateAuthenticationModule.ps1'
-      arguments: '-Build -ModulePreviewNumber $(Build.BuildNumber)'
+      arguments: '-Build -ModulePreviewNumber $(BUILD_NUMBER)'
       pwsh: true
 
   - task: DotNetCoreCLI@2
