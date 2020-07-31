@@ -13,7 +13,6 @@ pr:
 trigger: none
 variables:
   MODULE_NAME: 'Authentication'
-  BUILD_NUMBER: '$(Build.BuildNumber)$(Hours)$(Minutes)'
 
 jobs:
 - job: MSGraphPSSDKValidation_Windows
@@ -33,7 +32,7 @@ jobs:
     displayName: 'Generate and Build: Auth Module'
     inputs:
       filePath: '$(System.DefaultWorkingDirectory)/tools/GenerateAuthenticationModule.ps1'
-      arguments: '-Build'
+      arguments: '-Build -ModulePreviewNumber $(Build.BuildNumber)'
       pwsh: true
 
   - task: DotNetCoreCLI@2
@@ -48,7 +47,7 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-        & $(System.DefaultWorkingDirectory)/tools/PackModule.ps1 -Module $(MODULE_NAME) -ArtifactsLocation $(Build.ArtifactStagingDirectory) -ModulePreviewNumber $(BUILD_NUMBER)
+        & $(System.DefaultWorkingDirectory)/tools/PackModule.ps1 -Module $(MODULE_NAME) -ArtifactsLocation $(Build.ArtifactStagingDirectory)
       pwsh: true
   
   - task: PublishBuildArtifacts@1
