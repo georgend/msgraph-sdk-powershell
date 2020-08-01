@@ -48,7 +48,7 @@ jobs:
     displayName: 'Generate and Build: Service Modules'
     inputs:
       filePath: '$(System.DefaultWorkingDirectory)/tools/GenerateModules.ps1'
-      arguments: '-Build -ModulePreviewNumber $(BUILD_NUMBER) -RepositoryName $(PS_DEV_FEED)'
+      arguments: '-Build -ModulePreviewNumber $(BUILD_NUMBER)'
       pwsh: true
   
   - task: PowerShell@2
