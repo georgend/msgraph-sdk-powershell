@@ -17,7 +17,7 @@ trigger: none
 
 variables:
   MODULE_MAPPING_BETA: '$(System.DefaultWorkingDirectory)/config/ModulesMappingBeta.jsonc'
-  BUILD_NUMBER: format('{0:yyyyMMddHHmm}', pipeline.startTime)
+  BUILD_NUMBER: $[format('{0:yyMMddHHmm}', pipeline.startTime)]
 
 jobs:
 - job: MSGraphPSSDKValidation
