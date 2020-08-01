@@ -13,7 +13,7 @@ pr:
 trigger: none
 variables:
   MODULE_NAME: 'Authentication'
-  BUILD_NUMBER: format('{0:yyMMddHHmm}', pipeline.startTime)
+  BUILD_NUMBER: $[format('{0:yyMMddHHmm}', pipeline.startTime)]
 
 jobs:
 - job: MSGraphPSSDKValidation_Windows
