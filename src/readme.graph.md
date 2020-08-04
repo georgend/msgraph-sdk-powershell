@@ -50,14 +50,14 @@ profile:
 
 ``` yaml
 declare-directive:
-  where-operation-byRegex: >-
+  where-operation-by-regex: >-
     (() => {
       return { from: "openapi-document", where: `$..paths.*[?(/${$}/gmi.exec(@.operationId))]` };
     })()
   remove-path-by-operation: >-
     [{
       from: 'openapi-document',
-      "where-operation-byRegex": $,
+      "where-operation-by-regex": $,
       transform: '$ = undefined'
     }]
 ```

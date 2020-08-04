@@ -1,24 +1,3 @@
-<!-- region Generated -->
-# Microsoft.Graph.Users.Actions
-This directory contains the PowerShell module for the UsersActions service.
-
----
-## Status
-[![Microsoft.Graph.Users.Actions](https://img.shields.io/powershellgallery/v/Microsoft.Graph.Users.Actions.svg?style=flat-square&label=Microsoft.Graph.Users.Actions "Microsoft.Graph.Users.Actions")](https://www.powershellgallery.com/packages/Microsoft.Graph.Users.Actions/)
-
-## Info
-- Modifiable: yes
-- Generated: all
-- Committed: yes
-- Packaged: yes
-
----
-## Detail
-This module was primarily generated via [AutoRest](https://github.com/Azure/autorest) using the [PowerShell](https://github.com/Azure/autorest.powershell) extension.
-
-## Development
-For information on how to develop for `Microsoft.Graph.Users.Actions`, see [how-to.md](how-to.md).
-<!-- endregion -->
 
 ### AutoRest Configuration
 
@@ -30,7 +9,13 @@ require:
   - $(this-folder)/../../../profiles/$(title)/readme.md
 title: $(service-name)
 subject-prefix: ''
+```
 
+### Directives
+
+> see https://github.com/Azure/autorest/blob/master/docs/powershell/directives.md
+
+``` yaml
 directive:
 # Remove paths that have /parent* or /calendarView*.
   - remove-path-by-operation: users.onenote..*.parent.*|users.*.calendarView.*
@@ -38,7 +23,7 @@ directive:
   - where:
       verb: Clear
       subject: ^UserManagedAppRegistration$
-      variant: ^Wipe$|^WipeExpanded$|^WipeViaIdentity$|^WipeViaIdentityExpanded$
+      variant: ^Wipe1$|^WipeExpanded1$|^WipeViaIdentity1$|^WipeViaIdentityExpanded1$
     remove: true
   - where:
       verb: Get
@@ -48,7 +33,7 @@ directive:
       verb: Get
       subject: ^(UserOnlineMeeting)$
     remove: true
-# Rename
+# Rename cmdlets
   - where:
       verb: Clear
       subject: ^(UserManagedAppRegistration)$
@@ -80,6 +65,12 @@ directive:
       subject: ^(UserOnenote)(NotebookSectionGroupSectionPage|NotebookSectionPage|Page|SectionGroupSectionPage|SectionPage)$
     set:
       subject: $1$2Content
+  - where:
+      verb: Get
+      subject: ^(User)(CalendarEventCalendarSchedule)$
+      variant: ^Get$|^GetExpanded$|^GetViaIdentity$|^GetViaIdentityExpanded$|^Get3$|^GetExpanded3$|^GetViaIdentity3$|^GetViaIdentityExpanded3$
+    set:
+      subject: $1Default$2
   - where:
       verb: Get
       subject: ^(User)(CalendarSchedule)$
@@ -136,8 +127,14 @@ directive:
       subject: $1Default$2
   - where:
       verb: Stop
-      subject: ^(User)(CalendarEvent|CalendarEventInstance)$
+      subject: ^(User)(CalendarEvent)$
       variant: ^Cancel$|^CancelExpanded$|^CancelViaIdentity$|^CancelViaIdentityExpanded$
+    set:
+      subject: $1Default$2
+  - where:
+      verb: Stop
+      subject: ^(User)(CalendarEventInstance)$
+      variant: ^Cancel1$|^CancelExpanded1$|^CancelViaIdentity1$|^CancelViaIdentityExpanded1$
     set:
       subject: $1Default$2
   - where:
@@ -165,6 +162,7 @@ directive:
     set:
       subject: $1$2All
 ```
+
 ### Versioning
 
 ``` yaml

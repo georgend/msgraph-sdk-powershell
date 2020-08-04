@@ -16,19 +16,22 @@ subject-prefix: ''
 > see https://github.com/Azure/autorest/blob/master/docs/powershell/directives.md
 
 ``` yaml
-directive:
-# Remove paths that have /parent*. The parent can be passed via an id parameter.
-  - remove-path-by-operation: sites.onenote..*.parent.*
-# Remove Add|Remove-MgSite. They are duplicate of Sites.Site.
-  - where:
-      subject: (^Site$)
-    remove: true
-# Rename cmdlets that call onenotePatchContent action.
+# directive:
+# # Rename cmdlets
+#   - where:
+#       verb: Get
+#       subject: (^ServicePrincipal$)
+#       variant: Get1|GetExpanded
+#     set:
+#       verb: Get
+#       subject: $1ById
   # - where:
-  #     verb: Update
-  #     subject: (^SiteOnenote.*)
+  #     verb: Get
+  #     subject: (^Application$)
+  #     variant: Get1|GetExpanded
   #   set:
-  #     subject: $1Content
+  #     verb: Get
+  #     subject: $1ById
 ```
 
 ### Versioning

@@ -17,18 +17,12 @@ subject-prefix: ''
 
 ``` yaml
 directive:
-# Remove paths that have /parent*. The parent can be passed via an id parameter.
-  - remove-path-by-operation: sites.onenote..*.parent.*
-# Remove Add|Remove-MgSite. They are duplicate of Sites.Site.
+# Remove cmdlets
   - where:
-      subject: (^Site$)
+      verb: New
+      subject: PrintPrinter
+      variant: Create|CreateExpanded
     remove: true
-# Rename cmdlets that call onenotePatchContent action.
-  # - where:
-  #     verb: Update
-  #     subject: (^SiteOnenote.*)
-  #   set:
-  #     subject: $1Content
 ```
 
 ### Versioning
