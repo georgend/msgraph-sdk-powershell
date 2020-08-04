@@ -10069,6 +10069,36 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: action
+  /groups/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - groups.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: groups_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
   /groups/microsoft.graph.getByIds:
     post:
       tags:
@@ -10363,6 +10393,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.assignedLabel'
+              description: 'The list of sensitivity label pairs (label ID, label name) associated with an Microsoft 365 group. Returned only on $select. Read-only.'
             assignedLicenses:
               type: array
               items:
@@ -10389,6 +10420,7 @@ components:
             expirationDateTime:
               pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
               type: string
+              description: 'Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Returned by default. Read-only.'
               format: date-time
               nullable: true
             hasMembersWithLicenseErrors:
@@ -10399,7 +10431,7 @@ components:
               type: array
               items:
                 type: string
-              description: 'Specifies the group type and its membership.  If the collection contains Unified then the group is an Office 365 group; otherwise it''s a security group.  If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static.  Returned by default. Supports $filter.'
+              description: 'Specifies the group type and its membership.  If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it''s either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static.  Returned by default. Supports $filter.'
             licenseProcessingState:
               $ref: '#/components/schemas/microsoft.graph.licenseProcessingState'
             mail:
@@ -10416,9 +10448,11 @@ components:
               nullable: true
             membershipRule:
               type: string
+              description: 'The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default.'
               nullable: true
             membershipRuleProcessingState:
               type: string
+              description: Indicates whether the dynamic membership processing is on or paused. Possible values are 'On' or 'Paused'. Returned by default.
               nullable: true
             onPremisesDomainName:
               type: string
@@ -10457,6 +10491,7 @@ components:
               nullable: true
             preferredLanguage:
               type: string
+              description: The preferred language for an Microsoft 365 group. Should follow ISO 639-1 Code; for example 'en-US'. Returned by default.
               nullable: true
             proxyAddresses:
               type: array
@@ -10479,10 +10514,11 @@ components:
               nullable: true
             theme:
               type: string
+              description: 'Specifies an Microsoft 365 group''s color theme. Possible values are Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.'
               nullable: true
             visibility:
               type: string
-              description: 'Specifies the visibility of an Office 365 group. Possible values are: Private, Public, or Hiddenmembership; blank values are treated as public.  See group visibility options to learn more.Visibility can be set only when a group is created; it is not editable.Visibility is supported only for unified groups; it is not supported for security groups. Returned by default.'
+              description: 'Specifies the visibility of a Microsoft 365 group. Possible values are: Private, Public, or Hiddenmembership; blank values are treated as public.  See group visibility options to learn more.Visibility can be set only when a group is created; it is not editable.Visibility is supported only for unified groups; it is not supported for security groups. Returned by default.'
               nullable: true
             allowExternalSenders:
               type: boolean
@@ -10522,7 +10558,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.directoryObject'
-              description: 'Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), POST (supported for Office 365 groups, security groups and mail-enabled security groups), DELETE (supported for Office 365 groups and security groups) Nullable.'
+              description: 'Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups) Nullable.'
             memberOf:
               type: array
               items:
@@ -10547,7 +10583,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.directoryObject'
-              description: 'The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Office 365 groups, security groups and mail-enabled security groups), DELETE (supported for Office 365 groups and security groups). Nullable.'
+              description: 'The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups). Nullable.'
             settings:
               type: array
               items:
@@ -10856,6 +10892,41 @@ components:
         id: string
         self: string
         createdTime: string (timestamp)
+    microsoft.graph.extensionProperty:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.directoryObject'
+        - title: extensionProperty
+          type: object
+          properties:
+            appDisplayName:
+              type: string
+              description: Display name of the application object on which this extension property is defined. Read-only.
+              nullable: true
+            name:
+              type: string
+              description: Name of the extension property. Not nullable.
+            dataType:
+              type: string
+              description: Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
+            isSyncedFromOnPremises:
+              type: boolean
+              description: Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.
+              nullable: true
+            targetObjects:
+              type: array
+              items:
+                type: string
+              description: Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+      example:
+        id: string (identifier)
+        deletedDateTime: string (timestamp)
+        appDisplayName: string
+        name: string
+        dataType: string
+        isSyncedFromOnPremises: true
+        targetObjects:
+          - string
     microsoft.graph.attachmentType:
       title: attachmentType
       enum:
@@ -11082,9 +11153,11 @@ components:
       properties:
         labelId:
           type: string
+          description: The unique identifier of the label.
           nullable: true
         displayName:
           type: string
+          description: The display name of the label. Read-only.
           nullable: true
       example:
         labelId: string
@@ -11502,7 +11575,7 @@ components:
               $ref: '#/components/schemas/microsoft.graph.patternedRecurrence'
             responseRequested:
               type: boolean
-              description: Set to true if the sender would like a response when the event is accepted or declined.
+              description: 'Default is true, which represents the organizer would like an invitee to send a response to the event.'
               nullable: true
             seriesMasterId:
               type: string
@@ -11537,6 +11610,7 @@ components:
               $ref: '#/components/schemas/microsoft.graph.onlineMeetingInfo'
             allowNewTimeProposals:
               type: boolean
+              description: 'True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.'
               nullable: true
             attachments:
               type: array
@@ -11902,6 +11976,23 @@ components:
         - title: team
           type: object
           properties:
+            displayName:
+              type: string
+              nullable: true
+            description:
+              type: string
+              nullable: true
+            internalId:
+              type: string
+              description: A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.
+              nullable: true
+            classification:
+              type: string
+              nullable: true
+            specialization:
+              $ref: '#/components/schemas/microsoft.graph.teamSpecialization'
+            visibility:
+              $ref: '#/components/schemas/microsoft.graph.teamVisibilityType'
             webUrl:
               type: string
               description: 'A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.'
@@ -11920,6 +12011,14 @@ components:
               nullable: true
             schedule:
               $ref: '#/components/schemas/microsoft.graph.schedule'
+            group:
+              $ref: '#/components/schemas/microsoft.graph.group'
+            template:
+              $ref: '#/components/schemas/microsoft.graph.teamsTemplate'
+            members:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.conversationMember'
             channels:
               type: array
               items:
@@ -11938,6 +12037,14 @@ components:
                 $ref: '#/components/schemas/microsoft.graph.teamsAsyncOperation'
       example:
         id: string (identifier)
+        displayName: string
+        description: string
+        internalId: string
+        classification: string
+        specialization:
+          '@odata.type': microsoft.graph.teamSpecialization
+        visibility:
+          '@odata.type': microsoft.graph.teamVisibilityType
         webUrl: string
         memberSettings:
           '@odata.type': microsoft.graph.teamMemberSettings
@@ -11950,6 +12057,12 @@ components:
         isArchived: true
         schedule:
           '@odata.type': microsoft.graph.schedule
+        group:
+          '@odata.type': microsoft.graph.group
+        template:
+          '@odata.type': microsoft.graph.teamsTemplate
+        members:
+          - '@odata.type': microsoft.graph.conversationMember
         channels:
           - '@odata.type': microsoft.graph.channel
         primaryChannel:
@@ -13223,6 +13336,26 @@ components:
         self: string
         content: string
         contentUrl: string
+    microsoft.graph.teamSpecialization:
+      title: teamSpecialization
+      enum:
+        - none
+        - educationStandard
+        - educationClass
+        - educationProfessionalLearningCommunity
+        - educationStaff
+        - healthcareStandard
+        - healthcareCareCoordination
+        - unknownFutureValue
+      type: string
+    microsoft.graph.teamVisibilityType:
+      title: teamVisibilityType
+      enum:
+        - private
+        - public
+        - hiddenMembership
+        - unknownFutureValue
+      type: string
     microsoft.graph.teamMemberSettings:
       title: teamMemberSettings
       type: object
@@ -13439,6 +13572,32 @@ components:
           - '@odata.type': microsoft.graph.offerShiftRequest
         timeOffRequests:
           - '@odata.type': microsoft.graph.timeOffRequest
+    microsoft.graph.teamsTemplate:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: teamsTemplate
+          type: object
+      example:
+        id: string (identifier)
+    microsoft.graph.conversationMember:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: conversationMember
+          type: object
+          properties:
+            roles:
+              type: array
+              items:
+                type: string
+                nullable: true
+            displayName:
+              type: string
+              nullable: true
+      example:
+        id: string (identifier)
+        roles:
+          - string
+        displayName: string
     microsoft.graph.channel:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.entity'
@@ -13969,7 +14128,7 @@ components:
               description: The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only.
             isResourceAccount:
               type: boolean
-              description: 'true if the user is a resource account; otherwise, false. Null value should be considered false.'
+              description: Do not use – reserved for future use.
               nullable: true
             jobTitle:
               type: string
@@ -14499,6 +14658,7 @@ components:
       properties:
         upgradeAvailable:
           type: boolean
+          description: Indicates whether there are higher storage quota plans available. Read-only.
           nullable: true
       example:
         upgradeAvailable: true
@@ -14781,6 +14941,7 @@ components:
           maximum: 32767
           minimum: -32768
           type: integer
+          description: The orientation value from the camera. Writable on OneDrive Personal.
           format: int16
           nullable: true
         takenDateTime:
@@ -15056,6 +15217,11 @@ components:
                 $ref: '#/components/schemas/microsoft.graph.workbookComment'
             functions:
               $ref: '#/components/schemas/microsoft.graph.workbookFunctions'
+            operations:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.workbookOperation'
+              description: 'The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.'
       example:
         id: string (identifier)
         application:
@@ -15070,6 +15236,8 @@ components:
           - '@odata.type': microsoft.graph.workbookComment
         functions:
           '@odata.type': microsoft.graph.workbookFunctions
+        operations:
+          - '@odata.type': microsoft.graph.workbookOperation
     microsoft.graph.listItem:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.baseItem'
@@ -16298,7 +16466,7 @@ components:
               nullable: true
             webUrl:
               type: string
-              description: Deep link url of the tab instance. Read only.
+              description: Deep link URL of the tab instance. Read only.
               nullable: true
             configuration:
               $ref: '#/components/schemas/microsoft.graph.teamsTabConfiguration'
@@ -18043,6 +18211,7 @@ components:
           nullable: true
         sha256Hash:
           type: string
+          description: SHA256 hash for the contents of the file (if available). Read-only.
           nullable: true
       example:
         crc32Hash: string
@@ -18076,6 +18245,7 @@ components:
         queuedDateTime:
           pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
           type: string
+          description: Date and time the pending binary operation was queued in UTC time. Read-only.
           format: date-time
           nullable: true
       example:
@@ -18291,6 +18461,27 @@ components:
           type: object
       example:
         id: string (identifier)
+    microsoft.graph.workbookOperation:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: workbookOperation
+          type: object
+          properties:
+            status:
+              $ref: '#/components/schemas/microsoft.graph.workbookOperationStatus'
+            resourceLocation:
+              type: string
+              description: The resource URI for the result.
+              nullable: true
+            error:
+              $ref: '#/components/schemas/microsoft.graph.workbookOperationError'
+      example:
+        id: string (identifier)
+        status:
+          '@odata.type': microsoft.graph.workbookOperationStatus
+        resourceLocation: string
+        error:
+          '@odata.type': microsoft.graph.workbookOperationError
     microsoft.graph.contentTypeInfo:
       title: contentTypeInfo
       type: object
@@ -18301,6 +18492,7 @@ components:
           nullable: true
         name:
           type: string
+          description: The name of the content type.
           nullable: true
       example:
         id: string
@@ -19241,6 +19433,7 @@ components:
           type: string
           description: Time the action state was last updated
           format: date-time
+      description: Device action result
       example:
         actionName: string
         actionState:
@@ -19350,6 +19543,7 @@ components:
         windowsUpdateForBusiness:
           type: boolean
           description: Whether Windows Update for Business is managed by Intune
+      description: configuration Manager client enabled features
       example:
         inventory: true
         modernApps: true
@@ -19649,6 +19843,7 @@ components:
     microsoft.graph.mobileAppIdentifier:
       title: mobileAppIdentifier
       type: object
+      description: The identifier for a mobile app.
     microsoft.graph.managedAppPolicy:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.entity'
@@ -20167,6 +20362,33 @@ components:
         id: string (identifier)
         content: string
         contentType: string
+    microsoft.graph.workbookOperationStatus:
+      title: workbookOperationStatus
+      enum:
+        - notStarted
+        - running
+        - succeeded
+        - failed
+      type: string
+    microsoft.graph.workbookOperationError:
+      title: workbookOperationError
+      type: object
+      properties:
+        code:
+          type: string
+          description: The error code.
+          nullable: true
+        message:
+          type: string
+          description: The error message.
+          nullable: true
+        innerError:
+          $ref: '#/components/schemas/microsoft.graph.workbookOperationError'
+      example:
+        code: string
+        message: string
+        innerError:
+          '@odata.type': microsoft.graph.workbookOperationError
     microsoft.graph.accessAction:
       title: accessAction
       type: object
@@ -20670,6 +20892,7 @@ components:
           type: string
           description: Current value of setting on device
           nullable: true
+      description: Device Configuration Setting State for a given device.
       example:
         setting: string
         settingName: string
@@ -20760,6 +20983,7 @@ components:
           type: string
           description: Current value of setting on device
           nullable: true
+      description: Device Compilance Policy Setting State for a given device.
       example:
         setting: string
         settingName: string

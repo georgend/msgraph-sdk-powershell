@@ -4029,6 +4029,7 @@ components:
           description: Not yet documented
           format: base64url
           nullable: true
+      description: Device Configuration profile History reports.
       example:
         content: string
     microsoft.graph.applicationSignInSummary:

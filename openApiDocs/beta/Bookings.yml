@@ -2282,6 +2282,7 @@ components:
           items:
             $ref: '#/components/schemas/microsoft.graph.bookingWorkTimeSlot'
           description: A list of start/end times during a day.
+      description: This type represents the set of working hours in a single day of the week.
       example:
         day:
           '@odata.type': microsoft.graph.dayOfWeek
@@ -2312,6 +2313,7 @@ components:
         allowStaffSelection:
           type: boolean
           description: Allow customers to choose a specific person for the booking.
+      description: This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.
       example:
         timeSlotInterval: string
         minimumLeadTime: string
@@ -2408,6 +2410,7 @@ components:
         message:
           type: string
           description: Message to send.
+      description: This type represents when and to whom to send an e-mail reminder.
       example:
         offset: string
         recipients:
