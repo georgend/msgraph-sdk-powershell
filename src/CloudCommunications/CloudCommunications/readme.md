@@ -16,7 +16,7 @@ subject-prefix: ''
 > see https://github.com/Azure/autorest/blob/master/docs/powershell/directives.md
 
 ``` yaml
-directive:
+# directive:
 # Rename cmdlets - Needs validation
   # - where:
   #     verb: Invoke

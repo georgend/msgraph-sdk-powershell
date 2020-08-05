@@ -96,7 +96,6 @@ $ModuleMapping.Keys | ForEach-Object -Begin { $RequestCount = 0 } -End { Write-H
         }
 
         try {
-            return $true
             # Generate PowerShell modules.
             Write-Host -ForegroundColor Green "Generating '$ModulePrefix.$ModuleName' module..."
             & autorest --module-version:$ModuleVersion --service-name:$ModuleName $ModuleLevelReadMePath --verbose

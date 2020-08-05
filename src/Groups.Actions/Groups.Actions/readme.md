@@ -1,3 +1,24 @@
+<!-- region Generated -->
+# Microsoft.Graph.Groups.Actions
+This directory contains the PowerShell module for the GroupsActions service.
+
+---
+## Status
+[![Microsoft.Graph.Groups.Actions](https://img.shields.io/powershellgallery/v/Microsoft.Graph.Groups.Actions.svg?style=flat-square&label=Microsoft.Graph.Groups.Actions "Microsoft.Graph.Groups.Actions")](https://www.powershellgallery.com/packages/Microsoft.Graph.Groups.Actions/)
+
+## Info
+- Modifiable: yes
+- Generated: all
+- Committed: yes
+- Packaged: yes
+
+---
+## Detail
+This module was primarily generated via [AutoRest](https://github.com/Azure/autorest) using the [PowerShell](https://github.com/Azure/autorest.powershell) extension.
+
+## Development
+For information on how to develop for `Microsoft.Graph.Groups.Actions`, see [how-to.md](how-to.md).
+<!-- endregion -->
 
 ### AutoRest Configuration
 

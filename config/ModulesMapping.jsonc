@@ -3,7 +3,6 @@
     "Bookings": "^bookingBusinesses\\.|^bookingCurrencies\\.",
     "Calendar": "^places\\.|^users.calendar$|^users.calendarGroup$|^users.event$|^groups.calendar$|^groups.event$",
     "ChangeNotifications": "^subscriptions\\.",
-    "CloudCommunications": "^communications\\.|^users.onlineMeeting$|^users.presence$",
     "CrossDeviceExperiences": "^users.userActivity$|^users.device$",
     "Devices.CloudPrint": "^print\\.",
     "Devices.CorporateManagement": "^roleManagement\\.|^deviceAppManagement\\.|^officeConfiguration\\.|^users.mobileAppIntentAndState$|^users.mobileAppTroubleshootingEvent$|^users.windowsInformationProtectionDeviceRegistration$",
@@ -34,7 +33,9 @@
     "Sites.Actions": "^sites.Actions$",
     "Teams": "^teams\\.|^chats\\.|^users.chat$|^appCatalogs$|^users.userTeamwork$|^teamwork\\.|^users.team$|^users.userTeamwork$|^groups.team$",
     "Users": "^users.user$|^users.appRoleAssignment$|^users.directoryObject$|^users.licenseDetails$|^users.notification$|^users.outlookUser$|^users.profilePhoto$|^users.userSettings$|^users.extension$|^users.oAuth2PermissionGrant$",
-    "Users.Actions": "^users.Actions$",
+    "Users.Actions": "^users.Actions$"
+
+    // "CloudCommunications": "^communications\\.|^users.onlineMeeting$|^users.presence$", // Fails to generate.
     // "Users.Functions": "^users.Functions$",// - Fails to download.
     // "WorkBooks": "^workbooks\\.",// Max limit.
     // "Identity.EntitlementManagement": "^identityGovernance\\.",// - Too large.
