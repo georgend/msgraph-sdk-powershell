@@ -17,7 +17,7 @@
     "Identity.AccessReviews": "^accessReviews\\.|^businessFlowTemplates\\.|^programs\\.|^programControls\\.|^programControlTypes\\.",
     "Identity.PIM": "^privilegedRoles\\.|^privilegedRoleAssignments\\.|^privilegedRoleAssignmentRequests\\.|^privilegedApproval\\.|^privilegedOperationEvents\\.|^privilegedAccess\\.",
     "Identity.TermsOfUse": "^agreements\\.|^users.agreementAcceptance$",
-    "Identity.SignIns": "^organization.certificateBasedAuthConfiguration$|^invitations\\.|^identityProviders\\.|^oauth2PermissionGrants\\.|^riskDetections\\.|^riskyUsers\\.|^dataPolicyOperations\\.|^auditLogs\\.|^identity.identityUserFlow$|^trustFramework\\.|^informationProtection\\.|^policies\\.|^users.authentication$|^users.informationProtection$",
+    "Identity.SignIns": "^organization.certificateBasedAuthConfiguration$|^invitations\\.|^identityProviders\\.|^oauth2PermissionGrants\\.|^riskDetections\\.|^riskyUsers\\.|^dataPolicyOperations\\.|^auditLogs\\.|^identity.identityUserFlow$|^trustFramework\\.|^informationProtection\\.|^policies\\.|^users.authentication$|^users.informationProtection$|^identity.conditionalAccessRoot$",
     "Mail": "^users.inferenceClassification$|^users.mailFolder$|^users.message$",
     "Notes.Users":"^users.onenote$",
     "Notes.Groups":"^groups.onenote$",
